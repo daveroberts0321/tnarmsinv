@@ -1,0 +1,19 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block bodyblock %}
+<div class="container-fluid">
+    <h1>Current Inventory</h1>
+<ul>
+{% for inv in object_list %}
+   
+{% if inv.blem == True %}
+    <li>Blemish Product - {{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}</li>
+    {% else %}
+    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}</li>
+{% endif %}
+{% empty %}
+    <li><h4> No inventory listed please call 731-334-5106 for an update </h4>/li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
