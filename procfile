@@ -1,1 +1,1 @@
-web gunicorn tnainventory.wsgi --log-file -
+web: gunicorn tnainventory.wsgi --log-file -
