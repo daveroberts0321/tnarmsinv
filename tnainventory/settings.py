@@ -1,6 +1,8 @@
 
 import os
 import django_heroku
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') 
@@ -14,7 +16,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = ')gl^isdg-(jv&n%(!!#8pl@_ucp7oie&g+mc@_l0%px5mb8n2v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 LOGIN_REDIRECT_URL = 'staff'
 LOGOUT_REDIRECT_URL = 'index'
 ALLOWED_HOSTS = [
@@ -53,7 +55,7 @@ ROOT_URLCONF = 'tnainventory.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR, STATIC_DIR],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'tnainventory.wsgi.application'
+
 AUTH_USER_MODEL = 'login.CustomUser' # new
 
 # Database
@@ -78,8 +81,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+
+
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
@@ -118,36 +121,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# Static files (CSS, JavaScript, Images)
-2
-3
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-4
-5
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-6
-7
 STATIC_URL = '/static/'
-8
-9
-STATICFILES_DIRS = [
-10
-11
-    os.path.join(BASE_DIR, "static")
-12
-13
-]
+STATICFILES_DIRS = [STATIC_DIR]
+ 
 #media
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-
-
-import dj_database_url 
-2
-3
-prod_db  =  dj_database_url.config(conn_max_age=500)
-4
-5
-DATABASES['default'].update(prod_db)
