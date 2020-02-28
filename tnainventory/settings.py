@@ -120,12 +120,34 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+# Static files (CSS, JavaScript, Images)
+2
+3
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+4
+5
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+6
+7
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR]
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+8
+9
+STATICFILES_DIRS = [
+10
+11
+    os.path.join(BASE_DIR, "static")
+12
+13
+]
 #media
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 
-django_heroku.settings(locals())
+import dj_database_url 
+2
+3
+prod_db  =  dj_database_url.config(conn_max_age=500)
+4
+5
+DATABASES['default'].update(prod_db)
