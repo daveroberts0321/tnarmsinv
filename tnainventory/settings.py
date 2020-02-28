@@ -1,8 +1,6 @@
 
-
 import os
-import dj_database_url
-
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') 
@@ -55,7 +53,7 @@ ROOT_URLCONF = 'tnainventory.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR,],
+        'DIRS': [TEMPLATES_DIR, STATIC_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,10 +118,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR]
- 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 #media
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+
+django_heroku.settings(locals())
