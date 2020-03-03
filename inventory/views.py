@@ -5,8 +5,8 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.utils import timezone
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from . models import Inventory
-from . forms import AddInv
+from . models import Inventory, Orders, Consumables
+from . forms import AddInv, AddOrders, AddConsumables
 
 
 # Create your views here.
@@ -23,12 +23,40 @@ class AddInvView(CreateView):
     template_name = 'addinv_form.html'
     success_url = 'list'
 
+class AddOrderView(CreateView):
+    model = Orders 
+    fields = '__all__'
+    query_pk_and_slug = True
+    template_name = 'addorders_form.html'
+    success_url = 'orders'
+
+class AddConsumables(CreateView):
+    model = Consumables 
+    fields = '__all__'
+    query_pk_and_slug = True
+    template_name = 'addconsumables_form.html'
+    success_url = 'consumables'
+
 class UpdateInvView(UpdateView):
     model = Inventory
     success_url = 'list'
     template_name = 'invupdate.html'
     fields = '__all__'
     context_object_name = 'inv'
+
+class UpdateOrderView(UpdateView):
+    model = Orders
+    success_url = 'orderlist'
+    template_name = 'orderupdate.html'
+    fields = '__all__'
+    context_object_name = 'orders'
+
+class UpdateConsumables(UpdateView):
+    model = Consumables
+    success_url = 'consumableslist'
+    template_name = 'consumablesupdate.html'
+    fields = '__all__'
+    context_object_name = 'objects'
     
 
 class InvListView(ListView):
@@ -45,5 +73,18 @@ class StaffListView(ListView):
     model = Inventory
     paginate_by = 10  # if pagination is desired
     template_name = "staff_list.html"
+
+class OrderListView(ListView):
+    model = Orders
+    paginate_by =10 
+    template_name = "orders_list.html"
+
+class ConsumablesView(ListView):
+    model = Consumables
+    paginate_by =10 
+    template_name = "consumables_list.html"
+    
+
+    
 
     

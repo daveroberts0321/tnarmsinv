@@ -1,0 +1,20 @@
+{% extends 'staffbase.html' %}
+{% block bodyblock %}
+<div class="container-fluid">
+    <h1>Current Consumables</h1>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'addconsumables' %}">Add Consumables <span class="sr-only">(current)</span></a>
+            
+        </div>
+    </nav>
+<ul>
+{% for objects in object_list %}
+   <li><p>Big Brass{{ objects.bigbrass }} - Little Brass-{{ objects.littlebrass  }}- Serial Numbers- {{ objects.sernum }}Tac-9 Arms- {{objects.tac9arm}} <a href="{% url 'updateconsumables' pk=objects.pk %} ">  Update</a></li>
+    
+{% empty %}
+    <li><h4> No consumables listed </h4>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

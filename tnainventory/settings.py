@@ -16,7 +16,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = ')gl^isdg-(jv&n%(!!#8pl@_ucp7oie&g+mc@_l0%px5mb8n2v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 LOGIN_REDIRECT_URL = 'staff'
 LOGOUT_REDIRECT_URL = 'index'
 ALLOWED_HOSTS = [

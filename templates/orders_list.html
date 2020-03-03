@@ -1,0 +1,23 @@
+{% extends 'staffbase.html' %}
+{% block bodyblock %}
+<div class="container-fluid">
+    <h1>Current Purchase Orders</h1>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'addorder' %}">Add Order<span class="sr-only">(current)</span></a>
+            
+        </div>
+    </nav>
+<ul>
+<h4>Consumables:</h4>
+<h5> Consumables total:</h5><p>{{context}}</p>
+
+{% for orders in object_list %}
+   <li>{{ orders.typemodel }} - {{ orders.color  }}- {{ orders.date }} <a href="{% url "updateorder" pk=orders.pk %}">  Update</a></li>
+    
+{% empty %}
+    <li><h4> No orders listed </h4>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
