@@ -32,7 +32,7 @@ class AddOrderView(CreateView):
 
 class OrderDelete(DeleteView):
     model = Orders
-    success_url = 'orderslist'
+    success_url = 'orderlist'
     template_name = 'order_confirm_delete.html'
 
 
