@@ -1,7 +1,7 @@
 {% extends 'staffbase.html' %}
 {% block bodyblock %}
 <div class="container-fluid">
-    <h1>Current Consumables</h1>
+    <h4>Current Consumables</h4>
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'addconsumables' %}">Add Consumables <span class="sr-only">(current)</span></a>
@@ -17,6 +17,10 @@
    <li><p>- Tac 9 Ejectors -{{ objects.tac9ejector  }} </p></li>
    <li><p>- Ar15 Kit -{{ objects.ar15kit  }} </p></li>
    <li><p>- Ar308 Kit -{{ objects.AR308kit  }} </p></li>
+   <li><p>- 80 Jigs -{{ objects.jigs  }} </p></li>
+   <li><p>- Drill Bits -{{ objects.drillbits  }} </p></li>
+   <li><p>- Jig Screws -{{ objects.jigscrew  }} </p></li>
+   <li><p>- Pistol Grip Screws -{{ objects.pistolgripscrew  }} </p></li>
    <p><a href="{% url 'updateconsumables' pk=objects.pk %}">Update</a></p>
 
 {% empty %}

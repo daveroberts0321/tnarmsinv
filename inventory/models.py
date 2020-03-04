@@ -57,11 +57,15 @@ class Consumables(models.Model):
     '''brass and other consumables'''
     bigbrass = models.PositiveIntegerField(default = 0)
     littlebrass = models.PositiveIntegerField(default = 0) 
-    sernum = models.PositiveIntegerField(default = 0)
+    serialnum = models.PositiveIntegerField(default = 0)
     tac9arm = models.PositiveIntegerField(default = 0)
     tac9ejector = models.PositiveIntegerField(default = 0)
     ar15kit = models.PositiveIntegerField(default = 0)
     AR308kit = models.PositiveIntegerField(default = 0)
+    jigs = models.PositiveIntegerField(default = 0)
+    drillbits = models.PositiveIntegerField(default = 0)
+    jigscrew = models.PositiveIntegerField(default = 0)
+    pistolgripscrew = models.PositiveIntegerField(default = 0)
     
 
     def get_absolute_url(self):
