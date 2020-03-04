@@ -21,6 +21,7 @@
    <li><p>- Drill Bits -{{ objects.drillbits  }} </p></li>
    <li><p>- Jig Screws -{{ objects.jigscrew  }} </p></li>
    <li><p>- Pistol Grip Screws -{{ objects.pistolgripscrew  }} </p></li>
+   <p>Notes: {{objects.consumablesnotes}}</p>
    <p><a href="{% url 'updateconsumables' pk=objects.pk %}">Update</a></p>
 
 {% empty %}
