@@ -10,10 +10,29 @@
     </nav>
 <ul>
 {% for inv in object_list %}
-   <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}- Blem: {{inv.blem}} <a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-    
+<!--Ar15 regular -->
+{% if inv.typemodel == 'AR15' and inv.blem == False %}
+    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+{% elif inv.typemodel == 'AR15' and inv.blem == True%}
+    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+<!--AR308 -->
+{% elif inv.typemodel == 'AR308' and inv.blem == False%}
+    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+{% elif inv.typemodel == 'AR308' and inv.blem == True%}
+    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+<!--AR80 -->
+{% elif inv.typemodel == '80' and inv.blem == False%}
+    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+{% elif inv.typemodel == '80' and inv.blem == True%}
+    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+<!--TAC9 -->
+{% elif inv.typemodel == 'TAC9' and inv.blem == False%}
+    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+{% elif inv.typemodel == 'AR308' and inv.blem == True%}
+    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
+{% endif %}
 {% empty %}
-    <li><h4> No inventory listed </h4>
+<li><h4> No inventory listed </h4>
 {% endfor %}
 </ul>
 </div>
