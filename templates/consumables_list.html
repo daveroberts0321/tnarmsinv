@@ -10,8 +10,15 @@
     </nav>
 <ul>
 {% for objects in object_list %}
-   <li><p>Big Brass{{ objects.bigbrass }} - Little Brass-{{ objects.littlebrass  }}- Serial Numbers- {{ objects.sernum }}Tac-9 Arms- {{objects.tac9arm}} <a href="{% url 'updateconsumables' pk=objects.pk %} ">  Update</a></li>
-    
+   <li><p>- Big Brass-{{ objects.bigbrass }}  </li>
+   <li><p>- Little Brass-{{ objects.littlebrass  }} </p></li>
+   <li><p>- Serial Numbers- {{ objects.sernum }} </p></li>
+   <li><p>- Tac-9 Arms- {{objects.tac9arm}} </p></li>
+   <li><p>- Tac 9 Ejectors -{{ objects.Tac9ejector  }} </p></li>
+   <li><p>- Ar15 Kit -{{ objects.Ar15kit  }} </p></li>
+   <li><p>- Ar308 Kit -{{ objects.AR308kit  }} </p></li>
+   <p><a href="{% url 'updateconsumables' pk=objects.pk %}">Update</a></p>
+
 {% empty %}
     <li><h4> No consumables listed </h4>
 {% endfor %}

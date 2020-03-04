@@ -40,6 +40,7 @@ class Orders(models.Model):
     '''purchase orders and consumables list'''
     
     orderamount = models.PositiveIntegerField()
+    purchase_order_num = models.CharField(max_length=50, default = 000)
     typemodel = models.CharField(max_length=50, default = '80', choices = TYPE)
     color = models.CharField(max_length=50, choices = COLOR, default = 'BLK')
     date = models.DateTimeField(default = timezone.now)
@@ -54,10 +55,14 @@ class Orders(models.Model):
 
 class Consumables(models.Model):
     '''brass and other consumables'''
-    bigbrass = models.PositiveIntegerField()
-    littlebrass = models.PositiveIntegerField() 
-    sernum = models.PositiveIntegerField()
-    tac9arm = models.PositiveIntegerField()
+    bigbrass = models.PositiveIntegerField(default = 0)
+    littlebrass = models.PositiveIntegerField(default = 0) 
+    sernum = models.PositiveIntegerField(default = 0)
+    tac9arm = models.PositiveIntegerField(default = 0)
+    tac9ejector = models.PositiveIntegerField(default = 0)
+    ar15kit = models.PositiveIntegerField(default = 0)
+    AR308kit = models.PositiveIntegerField(default = 0)
+    
 
     def get_absolute_url(self):
         return reverse('orders-detail', kwargs={'pk': self.pk}) 

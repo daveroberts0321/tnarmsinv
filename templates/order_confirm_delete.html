@@ -1,0 +1,8 @@
+{% extends 'staffbase.html' %}
+{% block bodyblock %}
+<h3> Purchase Order Delete </h3>
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Confirm">
+</form>
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView 
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.utils import timezone
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -30,6 +30,12 @@ class AddOrderView(CreateView):
     template_name = 'addorders_form.html'
     success_url = 'orders'
 
+class OrderDelete(DeleteView):
+    model = Orders
+    success_url = 'orders'
+    template_name = 'order_confirm_delete.html'
+
+
 class AddConsumables(CreateView):
     model = Consumables 
     fields = '__all__'
@@ -53,7 +59,7 @@ class UpdateOrderView(UpdateView):
 
 class UpdateConsumables(UpdateView):
     model = Consumables
-    success_url = 'consumableslist'
+    success_url = 'consumables'
     template_name = 'consumablesupdate.html'
     fields = '__all__'
     context_object_name = 'objects'
