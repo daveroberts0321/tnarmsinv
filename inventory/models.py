@@ -66,7 +66,10 @@ class Consumables(models.Model):
     drillbits = models.PositiveIntegerField(default = 0)
     jigscrew = models.PositiveIntegerField(default = 0)
     pistolgripscrew = models.PositiveIntegerField(default = 0)
+    AR15_Buffer_Assembly = models.PositiveIntegerField(default = 0)
+    AR308_Buffer_Assembly = models.PositiveIntegerField(default = 0)
     consumablesnotes = models.TextField(blank = True)
+    
     
 
     def get_absolute_url(self):

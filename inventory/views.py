@@ -28,7 +28,7 @@ class AddOrderView(CreateView):
     fields = '__all__'
     query_pk_and_slug = True
     template_name = 'addorders_form.html'
-    success_url = 'orderslist'
+    success_url = 'orderlist'
 
 class OrderDelete(DeleteView):
     model = Orders
