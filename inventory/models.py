@@ -28,7 +28,7 @@ class Inventory(models.Model):
     ''' all serialized and nonserialized inventory by color and type'''
     typemodel = models.CharField(max_length=50, choices = TYPE)
     color = models.CharField(max_length=50, choices = COLOR)
-    instock = models.IntegerField()
+    instock = models.CharField(max_length = 20)
     blem = models.BooleanField(default = False)
     
     def get_absolute_url(self):
