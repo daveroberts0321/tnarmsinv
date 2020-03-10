@@ -67,7 +67,6 @@ class UpdateConsumables(UpdateView):
 
 class InvListView(ListView):
     model = Inventory
-    paginate_by = 10  # if pagination is desired
     template_name = "inventory_list.html"
 
     def get_context_data(self, **kwargs):
@@ -77,12 +76,10 @@ class InvListView(ListView):
 
 class StaffListView(ListView):
     model = Inventory
-    paginate_by = 10  # if pagination is desired
     template_name = "staff_list.html"
 
 class OrderListView(ListView):
     model = Orders
-    paginate_by =10 
     template_name = "orders_list.html"
 
 class ConsumablesView(ListView):
