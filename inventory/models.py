@@ -31,6 +31,11 @@ class Inventory(models.Model):
     instock = models.CharField(max_length = 20)
     blem = models.BooleanField(default = False)
     
+    class Meta:
+        ordering = ['typemodel']
+
+
+
     def get_absolute_url(self):
         return reverse('inventory-detail', kwargs={'pk': self.pk})      
 
