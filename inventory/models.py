@@ -26,21 +26,60 @@ COLOR = (
 
 class Inventory(models.Model):
     ''' all serialized and nonserialized inventory by color and type'''
-    typemodel = models.CharField(max_length=50, choices = TYPE)
-    color = models.CharField(max_length=50, choices = COLOR)
-    instock = models.CharField(max_length = 20)
-    blem = models.BooleanField(default = False)
-    
-    class Meta:
-        ordering = ['typemodel']
-
+    ar15black = models.CharField(max_length=50)
+    ar15fde = models.CharField(max_length=50)
+    ar15od = models.CharField(max_length=50)
+    ar15rifle = models.CharField(max_length=50)
+    ar15stealth = models.CharField(max_length=50)
+    ar15clear = models.CharField(max_length=50)
+    ar15pink = models.CharField(max_length=50)
+    blemar15black = models.CharField(max_length=50)
+    blemar15fde = models.CharField(max_length=50)
+    blemar15od = models.CharField(max_length=50)
+    blemar15rifle = models.CharField(max_length=50)
+    blemar15stealth = models.CharField(max_length=50)
+    blemar15clear = models.CharField(max_length=50)
+    blemar15pink = models.CharField(max_length=50)
+    ar308black = models.CharField(max_length=50)
+    ar308fde = models.CharField(max_length=50)
+    ar308od = models.CharField(max_length=50)
+    ar308rifle = models.CharField(max_length=50)
+    ar308stealth = models.CharField(max_length=50)
+    ar308pink = models.CharField(max_length=50)
+    blemar308black = models.CharField(max_length=50)
+    blemar308fde = models.CharField(max_length=50)
+    blemar308od = models.CharField(max_length=50)
+    blemar308rifle = models.CharField(max_length=50)
+    blemar308stealth = models.CharField(max_length=50)
+    blemar308pink = models.CharField(max_length=50)
+    tac9black = models.CharField(max_length=50)
+    tac9fde = models.CharField(max_length=50)
+    tac9od = models.CharField(max_length=50)
+    tac9rifle = models.CharField(max_length=50)
+    tac9stealth = models.CharField(max_length=50)
+    tac9pink = models.CharField(max_length=50)
+    blemtac9black = models.CharField(max_length=50)
+    blemtac9fde = models.CharField(max_length=50)
+    blemtac9od = models.CharField(max_length=50)
+    blemtac9rifle = models.CharField(max_length=50)
+    blemtac9stealth = models.CharField(max_length=50)
+    blemtac9pink = models.CharField(max_length=50)
+    black80 = models.CharField(max_length=50)
+    fde80 = models.CharField(max_length=50)
+    stealth80 = models.CharField(max_length=50)
+    rifle80 = models.CharField(max_length=50)
+    blemblack80 = models.CharField(max_length=50)
+    blemfde80 = models.CharField(max_length=50)
+    blemstealth80 = models.CharField(max_length=50)
+    blemrifle80 = models.CharField(max_length=50)
+    notes = models.TextField()
 
 
     def get_absolute_url(self):
         return reverse('inventory-detail', kwargs={'pk': self.pk})      
 
     def __str__(self):
-        return f'{self.typemodel} - {self.color} - {self.instock}'
+        return f'Ar15Blk: {self.ar15black} '
 
 class Orders(models.Model):
     '''purchase orders and consumables list'''

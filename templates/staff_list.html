@@ -10,29 +10,64 @@
     </nav>
 <ul>
 {% for inv in object_list %}
-<!--Ar15 regular -->
-{% if inv.typemodel == 'AR15' and inv.blem == False %}
-    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-{% elif inv.typemodel == 'AR15' and inv.blem == True%}
-    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-<!--AR308 -->
-{% elif inv.typemodel == 'AR308' and inv.blem == False%}
-    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-{% elif inv.typemodel == 'AR308' and inv.blem == True%}
-    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-<!--AR80 -->
-{% elif inv.typemodel == '80' and inv.blem == False%}
-    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-{% elif inv.typemodel == '80' and inv.blem == True%}
-    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-<!--TAC9 -->
-{% elif inv.typemodel == 'TAC9' and inv.blem == False%}
-    <li>{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-{% elif inv.typemodel == 'AR308' and inv.blem == True%}
-    <li>BLEMISH -{{ inv.typemodel }} - {{ inv.color  }}- {{ inv.instock }}<a href="{% url 'updateinv' pk=inv.pk %} ">  Update</a></li>
-{% endif %}
-{% empty %}
-<li><h4> No inventory listed </h4>
+<!--inventory -->
+    <li>Ar15 Black : {{ inv.ar15black}}</li>
+    <li>Ar15 FDE   : {{ inv.ar15fde }}</li>
+    <li>Ar15 Stlh  : {{ inv.ar15stealth}}</li>
+    <li>Ar15 OD : {{ inv.ar15od}}</li>
+    <li>Ar15 Rifle   : {{ inv.ar15rifle }}</li>
+    <li>Ar15 Clear  : {{ inv.ar15clear}}</li>
+    <li>Ar15 Pink  : {{ inv.ar15pink}}</li>
+    <!-- blems -->
+    <li>Blem Ar15 Black : {{ inv.blemar15black}}</li>
+    <li>Blem Ar15 FDE   : {{ inv.blemar15fde }}</li>
+    <li>Blem Ar15 Stlh  : {{ inv.blemar15stealth}}</li>
+    <li>Blem Ar15 OD : {{ inv.blemar15od}}</li>
+    <li>Blem Ar15 Rifle   : {{ inv.blemar15rifle }}</li>
+    <li>Blem Ar15 Clear  : {{ inv.blemar15clear}}</li>
+    <li>Blem Ar15 Pink : {{ inv.blemar15pink}}</li>
+    <!-- 308 -->
+    <li>Ar308 Black : {{ inv.ar308black}}</li>
+    <li>Ar308 FDE   : {{ inv.ar308fde }}</li>
+    <li>Ar308 Stlh  : {{ inv.ar308stealth}}</li>
+    <li>Ar308 OD : {{ inv.ar308od}}</li>
+    <li>Ar308 Rifle   : {{ inv.ar308rifle }}</li>
+    <li>Ar308 Pink  : {{ inv.ar308pink}}</li>
+    <li>Blem Ar308 Black : {{ inv.blemar308black}}</li>
+    <li>Blem Ar308 FDE   : {{ inv.blemar308fde }}</li>
+    <li>Blem Ar308 Stlh  : {{ inv.blemar308stealth}}</li>
+    <li>Blem Ar308 OD : {{ inv.blemar308od}}</li>
+    <li>Blem Ar308 Rifle   : {{ inv.blemar308rifle }}</li>
+    <li>Blem Ar308 Pink  : {{ inv.blemar308pink}}</li>
+    <!-- TAC9 -->
+    <li>Tac9 Black : {{ inv.tac9black}}</li>
+    <li>Tac9 FDE   : {{ inv.tac9fde }}</li>
+    <li>Tac9 Stlh  : {{ inv.tac9stealth}}</li>
+    <li>Tac9 OD : {{ inv.tac9od}}</li>
+    <li>Tac9 Rifle   : {{ inv.tac9rifle }}</li>
+    <li>Tac9 Pink  : {{ inv.tac9pink}}</li>
+    <li>Blem Tac9 Black : {{ inv.blemtac9black}}</li>
+    <li>Blem Tac9 FDE   : {{ inv.blemtac9fde }}</li>
+    <li>Blem Tac9 Stlh  : {{ inv.blemtac9stealth}}</li>
+    <li>Blem Tac9 OD : {{ inv.blemtac9od}}</li>
+    <li>Blem Tac9 Rifle   : {{ inv.blemtac9rifle }}</li>
+    <li>Blem Tac9 Pink  : {{ inv.blemtac9pink}}</li>
+    <!-- 80s -->
+    <li>80 Black : {{ inv.black80}}</li>
+    <li>80 FDE   : {{ inv.fde80 }}</li>
+    <li>80 Stlh  : {{ inv.stealth80}}</li>
+    <li>80 OD : {{ inv.rifle80}}</li>
+    <li>Blem 80 Black : {{ inv.black80}}</li>
+    <li>Blem 80 FDE   : {{ inv.fde80 }}</li>
+    <li>Blem 80 Stlh  : {{ inv.stealth80}}</li>
+    <li>Blem 80 OD : {{ inv.rifle80}}</li>
+
+    <li>Notes: {{ inv.notes }}</li>
+
+    <p><a href="{% url 'updateinv' pk=inv.pk %}">Update</a></p>
+
+  
+    
 {% endfor %}
 </ul>
 </div>
