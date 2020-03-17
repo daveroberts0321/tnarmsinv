@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'inventory',
+    'serialized',
     'login',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #QR Codes
+    'qr_code',
     
 
 ]

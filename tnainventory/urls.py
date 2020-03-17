@@ -22,6 +22,7 @@ urlpatterns = [
     path('staff/updateorder-<int:pk>', UpdateOrderView.as_view(), name = 'updateorder'),
     path('staff/orderdelete-<int:pk>', OrderDelete.as_view(), name = 'orderdelete'),
     path('staff/updateconsumables-<int:pk>', UpdateConsumables.as_view(), name = 'updateconsumables'),
+    path('serialized/', include('serialized.urls')),
     path('login/', include('login.urls')), 
     path('login/', include('django.contrib.auth.urls')), 
 ]
