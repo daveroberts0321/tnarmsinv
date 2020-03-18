@@ -101,19 +101,20 @@ class Orders(models.Model):
 
 class Consumables(models.Model):
     '''brass and other consumables'''
-    bigbrass = models.PositiveIntegerField(default = 0)
-    littlebrass = models.PositiveIntegerField(default = 0) 
-    serialnum = models.PositiveIntegerField(default = 0)
-    tac9arm = models.PositiveIntegerField(default = 0)
-    tac9ejector = models.PositiveIntegerField(default = 0)
-    ar15kit = models.PositiveIntegerField(default = 0)
-    AR308kit = models.PositiveIntegerField(default = 0)
-    jigs = models.PositiveIntegerField(default = 0)
-    drillbits = models.PositiveIntegerField(default = 0)
-    jigscrew = models.PositiveIntegerField(default = 0)
-    pistolgripscrew = models.PositiveIntegerField(default = 0)
-    AR15_Buffer_Assembly = models.PositiveIntegerField(default = 0)
-    AR308_Buffer_Assembly = models.PositiveIntegerField(default = 0)
+    bigbrass = models.CharField(default = 0, max_length = 10)
+    littlebrass = models.CharField(default = 0, max_length = 10) 
+    serialnum = models.CharField(default = 0, max_length = 10)
+    tac9arm = models.CharField(default = 0, max_length = 10)
+    tac9button = models.CharField(default = 0, max_length = 10)
+    tac9ejector = models.CharField(default = 0, max_length = 10)
+    ar15kit = models.CharField(default = 0, max_length = 10)
+    AR308kit = models.CharField(default = 0, max_length = 10)
+    jigs = models.CharField(default = 0, max_length = 10)
+    drillbits = models.CharField(default = 0, max_length = 10)
+    jigscrew = models.CharField(default = 0, max_length = 10)
+    pistolgripscrew = models.CharField(default = 0, max_length = 10)
+    AR15_Buffer_Assembly = models.CharField(default = 0, max_length = 10)
+    AR308_Buffer_Assembly = models.CharField(default = 0, max_length = 10)
     consumablesnotes = models.TextField(blank = True)
     
     

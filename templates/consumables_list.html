@@ -2,23 +2,19 @@
 {% block bodyblock %}
 <div class="container-fluid">
     <h4>Current Consumables</h4>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="{% url 'addconsumables' %}">Add Consumables <span class="sr-only">(current)</span></a>
-            
-        </div>
-    </nav>
+    
 <ul>
 {% for objects in object_list %}
    <li><p>- Big Brass-{{ objects.bigbrass }}  </li>
    <li><p>- Little Brass-{{ objects.littlebrass  }} </p></li>
-   <li><p>- Serial Numbers- {{ objects.sernum }} </p></li>
+   <li><p>- Serial Numbers- {{ objects.serialnum }} </p></li>
    <li><p>- Tac-9 Arms- {{objects.tac9arm}} </p></li>
+   <li><p>- TAC-9 Buttons -{{ objects.tac9button }} </p></li>
    <li><p>- Tac 9 Ejectors -{{ objects.tac9ejector  }} </p></li>
    <li><p>- Ar15 Kit -{{ objects.ar15kit  }} </p></li>
    <li><p>- Ar308 Kit -{{ objects.AR308kit  }} </p></li>
-   <li><p>- AR15 Buffer Assemblies -{{ objects.AR15_Buffer_Assemblies}} </p></li>
-   <li><p>- AR308 Buffer Assemblies -{{ objects.AR308_Buffer_Assemblies}} </p></li>
+   <li><p>- AR15 Buffer Assemblies -{{ objects.AR15_Buffer_Assembly}} </p></li>
+   <li><p>- AR308 Buffer Assemblies -{{ objects.AR308_Buffer_Assembly}} </p></li>
    <li><p>- Ar308 Kit -{{ objects.AR308kit  }} </p></li>
    <li><p>- 80 Jigs -{{ objects.jigs  }} </p></li>
    <li><p>- Drill Bits -{{ objects.drillbits  }} </p></li>
