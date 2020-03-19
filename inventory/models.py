@@ -12,7 +12,12 @@ TYPE = (
     ('AR308', 'AR308'),
     ('TAC9', 'TAC9'),
     ('80', '80'),
-    ('JIGS', 'JIGS')
+    ('JIGS', 'JIGS'), 
+    ('BRASS', 'BRASS'),
+    ('LPK15', 'LPK15'),
+    ('LPK308','LPK308'),
+    ('TAC9ARM', 'TAC9ARM'),
+    ('TAC9BUT', 'TAC9BUT')
     )
 
 COLOR = (
@@ -87,6 +92,7 @@ class Orders(models.Model):
     
     orderamount = models.PositiveIntegerField()
     purchase_order_num = models.CharField(max_length=50, default = 000)
+    supplier = models.CharField(max_length = 50, blank = True)
     typemodel = models.CharField(max_length=50, default = '80', choices = TYPE)
     color = models.CharField(max_length=50, choices = COLOR, default = 'BLK')
     date = models.DateTimeField(default = timezone.now)
