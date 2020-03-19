@@ -8,8 +8,9 @@ from qr_code.qrcode.utils import ContactDetail
 class Serialized(models.Model):
     """fields for serialized equipment to be used with QR codes. using qr_code: https://django-qr-code.readthedocs.io/en/latest/pages/README.html#usage """
     serialnumber = models.CharField(max_length=20)
-    dateaquired = models.DateField( auto_now_add=True)
+    dateaquired = models.DateField( auto_now_add=False)
     datedeposed = models.DateField(blank = True, auto_now_add=False)
+    ininventory = models.BooleanField(default = True)
     ordernumber = models.CharField(max_length=50, blank = True)
     notes = models.TextField(blank = True)
 
@@ -23,7 +24,7 @@ class Serialized(models.Model):
 
     def __str__(self):
         """Unicode representation of Serialized."""
-        return f"SerNum: {self.serialnumber}, DateAqu: {self.dateaquired}, DateDep: {self.datedeposed}"
+        return f"In Stock: {self.ininventory},SerNum: {self.serialnumber}, DateAqu: {self.dateaquired}, DateDep: {self.datedeposed}"
 
     def save(self):
         """Save method for Serialized."""
