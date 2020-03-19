@@ -1,6 +1,6 @@
 # users/forms.py
 from django.forms import forms, ModelForm 
-from .models import Inventory, Orders, Consumables
+from .models import Inventory, Orders, Consumables, Supplier
 
 class AddInv(ModelForm):
     class Meta:
@@ -19,3 +19,9 @@ class AddConsumables(ModelForm):
         model = Consumables
         fields = '__all__'
         template_name = 'addconsumables_form.html'
+
+class AddSupplier(ModelForm):
+    class Meta:
+        model = Supplier
+        fields = '__all__'
+        template_name = 'addsupplier_form.html'

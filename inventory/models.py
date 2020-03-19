@@ -109,6 +109,7 @@ class Consumables(models.Model):
     tac9ejector = models.CharField(default = 0, max_length = 10)
     ar15kit = models.CharField(default = 0, max_length = 10)
     AR308kit = models.CharField(default = 0, max_length = 10)
+    extendedmagrelease = models.CharField(default = 0, max_length = 10)
     jigs = models.CharField(default = 0, max_length = 10)
     drillbits = models.CharField(default = 0, max_length = 10)
     jigscrew = models.CharField(default = 0, max_length = 10)
@@ -127,3 +128,20 @@ class Consumables(models.Model):
     def __str__(self):
         return f" Big Brass{self.bigbrass} Little Brass: {self.littlebrass}, Ser#: {self.sernum}, Tac9 Arm: {self.tac9arm}"  
 
+class Supplier(models.Model):
+    '''suppliers of consumables and regular items'''
+    name = models.CharField(max_length=50)
+    contact = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    goodsupplied = models.CharField(max_length=50)
+    currentprice = models.CharField(max_length=50)
+    note = models.TextField()
+
+    def __str__(self):
+        return f'Name: {self.name}, Email: {self.email}, Supplied: {self.goodsupplied}'
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Supplier'
+        verbose_name_plural = 'Suppliers'

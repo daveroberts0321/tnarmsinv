@@ -5,8 +5,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.utils import timezone
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from . models import Inventory, Orders, Consumables
-from . forms import AddInv, AddOrders, AddConsumables
+from . models import Inventory, Orders, Consumables, Supplier
+from . forms import AddInv, AddOrders, AddConsumables, AddSupplier
 
 
 # Create your views here.
@@ -23,6 +23,13 @@ class AddInvView(CreateView):
     template_name = 'addinv_form.html'
     success_url = 'list'
 
+class AddSupplier(CreateView):
+    model = Supplier
+    fields = '__all__'
+    query_pk_and_slug = True
+    template_name = 'addsupplier_form.html'
+    success_url = 'supplierlist'
+
 class AddOrderView(CreateView):
     model = Orders 
     fields = '__all__'
@@ -34,6 +41,11 @@ class OrderDelete(DeleteView):
     model = Orders
     success_url = 'orderlist'
     template_name = 'order_confirm_delete.html'
+
+class SupplierDelete(DeleteView):
+    model = Orders
+    success_url = 'supplierslist'
+    template_name = 'supplier_confirm_delete.html'
 
 
 class AddConsumables(CreateView):
@@ -49,6 +61,13 @@ class UpdateInvView(UpdateView):
     template_name = 'invupdate.html'
     fields = '__all__'
     context_object_name = 'inv'
+
+class UpdateSupplierView(UpdateView):
+    model = Supplier
+    success_url = 'supplierlist'
+    template_name = 'updatesupplier.html'
+    fields = '__all__'
+    context_object_name = 'supplier'
 
 class UpdateOrderView(UpdateView):
     model = Orders
@@ -69,6 +88,7 @@ class InvListView(ListView):
     model = Inventory
     template_name = "inventory_list.html"
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
@@ -81,6 +101,11 @@ class StaffListView(ListView):
 class OrderListView(ListView):
     model = Orders
     template_name = "orders_list.html"
+
+class SupplierListView(ListView):
+    model = Supplier
+    template_name = "supplierslist.html"
+    context_object_name = 'supplier'
 
 class ConsumablesView(ListView):
     model = Consumables

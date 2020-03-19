@@ -1,0 +1,34 @@
+{% extends 'staffbase.html'%}
+{% load static %}
+{% block bodyblock %}
+<div class="container-fluid">
+<h3>Suppliers</h3>
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="nav navbar-nav">
+        <a class="nav-item nav-link active" href="#">Add Supplier <span class="sr-only">(current)</span></a>
+        
+    </div>
+</nav>
+{% for sup in supplier %}
+<div class="row">
+    <!--StartSection -->
+    <div class="col-sm-6">
+        <!--inventory --> 
+        <ul>
+            <h5> {{ sup.name}}</h5>
+            <li>Contact Name: {{ sup.contact }}</li>
+            <li>Email: {{ sup.email }}</li>
+            <li>Supplied: {{ sup.goodsupplied }}</li>
+            <li>Current Price: {{ sup.currentprice }}</li>
+            <p>Notes: {{ sup.note }}</p>
+            <a href="{% url "updatesupplier" pk=sup.pk %}"> Update</a>       
+        </ul>
+    </div>
+    <!--End Section -->
+</div>
+{% empty %}
+    <li><h4> No suppliers listed </h4>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
