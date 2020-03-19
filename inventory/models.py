@@ -109,6 +109,7 @@ class Consumables(models.Model):
     tac9ejector = models.CharField(default = 0, max_length = 10)
     ar15kit = models.CharField(default = 0, max_length = 10)
     AR308kit = models.CharField(default = 0, max_length = 10)
+    tac9bufferkit = models.CharField(default = 0, max_length = 50)
     extendedmagrelease = models.CharField(default = 0, max_length = 10)
     jigs = models.CharField(default = 0, max_length = 10)
     drillbits = models.CharField(default = 0, max_length = 10)
