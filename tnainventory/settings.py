@@ -25,7 +25,8 @@ LOGIN_REDIRECT_URL = 'staff'
 LOGOUT_REDIRECT_URL = 'index'
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '.herokuapp.com'
+    '.herokuapp.com',
+    'tenarmintdata.com',
 ]
 
 

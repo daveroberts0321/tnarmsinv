@@ -7,7 +7,7 @@ from qr_code.qrcode.utils import ContactDetail
 # Create your models here.
 class Serialized(models.Model):
     """fields for serialized equipment to be used with QR codes. using qr_code: https://django-qr-code.readthedocs.io/en/latest/pages/README.html#usage """
-    serialnumber = models.CharField(max_length=20)
+    serialnumber = models.CharField(max_length=20, primary_key = True)
     dateaquired = models.DateField( auto_now_add=False)
     datedeposed = models.DateField(blank = True, auto_now_add=False)
     ininventory = models.BooleanField(default = True)
