@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -16,67 +17,67 @@ class Index(TemplateView):
 class StaffIndex(TemplateView):
     template_name = 'staffindex.html'
 
-class AddInvView(CreateView):
+class AddInvView(LoginRequiredMixin, CreateView):
     model = Inventory 
     fields = '__all__'
     query_pk_and_slug = True
     template_name = 'addinv_form.html'
     success_url = 'list'
 
-class AddSupplier(CreateView):
+class AddSupplier(LoginRequiredMixin, CreateView):
     model = Supplier
     fields = '__all__'
     query_pk_and_slug = True
     template_name = 'addsupplier_form.html'
     success_url = 'supplierlist'
 
-class AddOrderView(CreateView):
+class AddOrderView(LoginRequiredMixin, CreateView):
     model = Orders 
     fields = '__all__'
     query_pk_and_slug = True
     template_name = 'addorders_form.html'
     success_url = 'orderlist'
 
-class OrderDelete(DeleteView):
+class OrderDelete(LoginRequiredMixin, DeleteView):
     model = Orders
     success_url = 'orderlist'
     template_name = 'order_confirm_delete.html'
 
-class SupplierDelete(DeleteView):
+class SupplierDelete(LoginRequiredMixin, DeleteView):
     model = Orders
     success_url = 'supplierslist'
     template_name = 'supplier_confirm_delete.html'
 
 
-class AddConsumables(CreateView):
+class AddConsumables(LoginRequiredMixin, CreateView):
     model = Consumables 
     fields = '__all__'
     query_pk_and_slug = True
     template_name = 'addconsumables_form.html'
     success_url = 'consumables'
 
-class UpdateInvView(UpdateView):
+class UpdateInvView(LoginRequiredMixin, UpdateView):
     model = Inventory
     success_url = 'list'
     template_name = 'invupdate.html'
     fields = '__all__'
     context_object_name = 'inv'
 
-class UpdateSupplierView(UpdateView):
+class UpdateSupplierView(LoginRequiredMixin, UpdateView):
     model = Supplier
     success_url = 'supplierlist'
     template_name = 'updatesupplier.html'
     fields = '__all__'
     context_object_name = 'supplier'
 
-class UpdateOrderView(UpdateView):
+class UpdateOrderView(LoginRequiredMixin, UpdateView):
     model = Orders
     success_url = 'orderlist'
     template_name = 'orderupdate.html'
     fields = '__all__'
     context_object_name = 'orders'
 
-class UpdateConsumables(UpdateView):
+class UpdateConsumables(LoginRequiredMixin, UpdateView):
     model = Consumables
     success_url = 'consumables'
     template_name = 'consumablesupdate.html'
@@ -94,20 +95,20 @@ class InvListView(ListView):
         context['now'] = timezone.now()
         return context
 
-class StaffListView(ListView):
+class StaffListView(LoginRequiredMixin, ListView):
     model = Inventory
     template_name = "staff_list.html"
 
-class OrderListView(ListView):
+class OrderListView(LoginRequiredMixin, ListView):
     model = Orders
     template_name = "orders_list.html"
 
-class SupplierListView(ListView):
+class SupplierListView(LoginRequiredMixin, ListView):
     model = Supplier
     template_name = "supplierslist.html"
     context_object_name = 'supplier'
 
-class ConsumablesView(ListView):
+class ConsumablesView(LoginRequiredMixin, ListView):
     model = Consumables
     paginate_by =10 
     template_name = "consumables_list.html"
