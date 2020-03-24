@@ -1,7 +1,14 @@
 import csv, io
 from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from .models import Serialized
+from .forms import AddSerialized
+from django.views.generic.base import TemplateView 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.utils import timezone
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 # Create your views here.
 # one parameter named request
 def SerializedUpload(request):
@@ -33,3 +40,25 @@ def SerializedUpload(request):
             )
     context = {}
     return render(request, template, context)
+
+class AddSerialized(CreateView):
+    model = Serialized
+    fields = '__all__'
+    query_pk_and_slug = True
+    template_name = 'serialized/addserialized_form.html'
+    success_url = reverse_lazy('serialized:serializedlist')
+
+class SerializedListView(ListView):
+    '''serialized inventory list view'''
+    model = Serialized
+    template_name = 'serialized/staff_serialized.html'
+
+
+class SerializedDetailView(DetailView):
+    '''Serialized inventory Detail View'''
+    model = Serialized
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context

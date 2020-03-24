@@ -1,0 +1,39 @@
+{% extends 'staffbase.html'%}
+{% load static %}
+{% block bodyblock %}
+<div class="container-fluid">
+<h3>Suppliers</h3>
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="nav navbar-nav">
+        <a class="nav-item nav-link active" href="{% url 'serialized:addserialized' %}">Add Serialized Inventory <span class="sr-only">(current)</span></a>
+        
+    </div>
+</nav>
+<div class="container">
+    <h5> To Update Inventory, Hit the Blue Serial number Link</h5>
+</div>
+{% for inv in object_list %}
+
+    <!--StartSection -->
+<div>
+    <!--inventory --> 
+    <ul>
+        
+        {% if inv.ininventory %}
+        <li><p> In Inventory, <a href=""> {{ inv.serialnumber }}</a> , Model:{{ inv.modeltype }}, Color: {{ inv.color }}, Date Aquired: {{ inv.dateaquired }}, Date Deposed: {{ inv.datedeposed }} </p></li>
+        <p>Notes: {{ inv.notes }}</a></p>
+        {% else %}
+        <p> Not in Inventory {{ inv.serialnumber }}, Model:{{ inv.modeltype }}, Color: {{ inv.color }}, Date Aquired: {{ inv.dateaquired }}, Date Deposed: {{ inv.datedeposed }} </p>
+        <p>Notes: {{ inv.notes }}</p> 
+        {% endif %}           
+                
+    </ul>
+</div>
+    <!--End Section -->
+
+{% empty %}
+    <h4> No Serialized Inventory Listed, We out Sucka </h4>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
