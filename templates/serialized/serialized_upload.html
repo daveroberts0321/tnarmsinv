@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'staffbase.html'%}
+{% block bodyblock%}
     {% if messages %}
         {% for message in messages %}
             <div>
@@ -25,5 +20,7 @@
     {% for profile in profiles %}
     {{profile.name}}
     {% endfor %}
+    <a href="{% url "serialized:serializedlist" %}"> <h5>   Cancel</h5></a>
 </body>
 </html>
+{% endblock %}

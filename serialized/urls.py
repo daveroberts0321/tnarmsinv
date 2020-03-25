@@ -6,7 +6,7 @@ app_name = 'serialized'
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('upload-csv/', SerializedUpload, name="serialized_upload"),
+    path('upload', SerializedUpload, name="serialized_upload"),
     path('addserialized', AddSerialized.as_view(), name = 'addserialized'),
     path('list', SerializedListView.as_view(), name = 'serializedlist'),
 ]

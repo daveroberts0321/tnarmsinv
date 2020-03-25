@@ -13,7 +13,7 @@ from django.views.generic.list import ListView
 # one parameter named request
 def SerializedUpload(request):
     # declaring template
-    template = "serialized_upload.html"
+    template = "serialized/serialized_upload.html"
     data = Serialized.objects.all()
 # prompt is a context variable that can have different values      depending on their context
     prompt = {
