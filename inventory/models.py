@@ -79,6 +79,7 @@ class Inventory(models.Model):
     blemfde80 = models.CharField(max_length=50)
     blemstealth80 = models.CharField(max_length=50)
     blemrifle80 = models.CharField(max_length=50)
+    updatedby = models.CharField( max_length = 30, default = 'Amy' , help_text = 'Example: Amy on xx/xx')
     notes = models.TextField()
 
 
@@ -125,6 +126,7 @@ class Consumables(models.Model):
     AR15_Buffer_Assembly = models.CharField(default = 0, max_length = 10)
     AR308_Buffer_Assembly = models.CharField(default = 0, max_length = 10)
     consumablesnotes = models.TextField(blank = True)
+    updatedby = models.CharField( max_length = 30, default = 'Amy' , help_text = 'Example: Amy on xx/xx')
     
     
 
@@ -144,6 +146,7 @@ class Supplier(models.Model):
     goodsupplied = models.CharField(max_length=50)
     currentprice = models.CharField(max_length=50)
     note = models.TextField()
+    updatedby = models.CharField( max_length = 30, default = 'Amy' , help_text = 'Example: Amy on xx/xx')
 
     def __str__(self):
         return f'Name: {self.name}, Email: {self.email}, Supplied: {self.goodsupplied}'
