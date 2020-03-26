@@ -79,7 +79,7 @@ class Inventory(models.Model):
     blemfde80 = models.CharField(max_length=50)
     blemstealth80 = models.CharField(max_length=50)
     blemrifle80 = models.CharField(max_length=50)
-    updatedby = models.CharField( blank = True, max_length = 30)
+    updatedby = models.CharField(  max_length = 30,blank = True, null = True)
     notes = models.TextField()
 
 
