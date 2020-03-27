@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path, include
 from inventory.views import (Index, InvListView, StaffIndex, 
 StaffListView, AddInvView, UpdateInvView, OrderListView, AddOrderView, UpdateOrderView,
-OrderListView, AddConsumables,ConsumablesView, UpdateConsumables, OrderDelete, Supplier, SupplierDelete, SupplierListView, AddSupplier, UpdateSupplierView)
+OrderListView, AddConsumables,ConsumablesView, UpdateConsumables, OrderDelete, Supplier, SupplierDelete, SupplierListView, AddSupplier, UpdateSupplierView, AdvantageList)
 
 
 
@@ -27,6 +27,7 @@ urlpatterns = [
     path('staff/orderdelete-<int:pk>', OrderDelete.as_view(), name = 'orderdelete'),
     path('staff/updateconsumables-<int:pk>', UpdateConsumables.as_view(), name = 'updateconsumables'),
     path('serialized/', include('serialized.urls')),
+    path('advantage', AdvantageList.as_view(), name = 'advantage'),
     path('login/', include('login.urls')), 
     path('login/', include('django.contrib.auth.urls')), 
 ]

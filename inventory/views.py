@@ -99,6 +99,17 @@ class StaffListView(LoginRequiredMixin, ListView):
     model = Inventory
     template_name = "staff_list.html"
 
+class AdvantageList(LoginRequiredMixin, ListView):
+    model = Orders
+    template_name = "advantage_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['consumables'] = Consumables.objects.all()
+        context['object_list'] = Inventory.objects.all()
+        context['orders'] = Orders.objects.all()
+        return context
+
 class OrderListView(LoginRequiredMixin, ListView):
     model = Orders
     template_name = "orders_list.html"

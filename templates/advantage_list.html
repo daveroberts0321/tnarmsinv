@@ -1,0 +1,75 @@
+{% extends 'staffbase.html' %}
+{% block bodyblock %}
+<div style="background-color:blue">
+<h1 class = "text-white">Advantage Mfg Page</h1>
+</div>   
+<div class="container-fluid">
+    
+
+    {% for obj in consumables %}
+
+    <div >
+        <!--StartSection -->
+        <div >
+            <!--inventory --> 
+            <h3>Consumables</h3>
+            <ul>
+                <li>Big Brass : {{ obj.bigbrass }}</li>
+                <li>Little Brass: {{ obj.littlebrass }}</li>
+                <li>Tac 9 Ejectors: {{ obj.tac9ejector }}</li>
+                <li>80% Jigs: {{ obj.jigs }}</li>            
+            </ul>
+    {% endfor %}
+    </div>
+        
+    <!--End Section -->
+
+    <div >
+        <!--StartSection -->
+        <div >
+            <!--inventory --> 
+            <h3>Purchase Orders</h3>
+            {% for obj in orders %}
+            <p> {{ obj.typemodel }} - {{ obj.orderamount }} {{ obj.color  }}- {{ obj.date }} Invoice # {{obj.purchase_order_num}}</p>           
+            {% empty %}
+            <p> No orders to show </p>
+            {% endfor %}
+        </div>   
+    </div>
+    <!--End Section -->
+    <!-- start inventory--> 
+    <div >
+        <!--StartSection -->
+        <h4> Inventory </h4>
+        
+        
+        {% for inv in object_list %}
+        <ul> 
+            <li>Ar15 Black : {{ inv.ar15black}}</li>
+            <li>Ar15 FDE   : {{ inv.ar15fde }}</li>
+            <li>Ar15 Stlh  : {{ inv.ar15stealth}}</li>
+            <li>Ar15 OD : {{ inv.ar15od}}</li>
+            <li>Ar15 Rifle   : {{ inv.ar15rifle }}</li>
+            <li>Ar15 Clear  : {{ inv.ar15clear}}</li>
+            <li>Ar15 Pink  : {{ inv.ar15pink}}</li>
+            <li>Ar308 Black : {{ inv.ar308black}}</li>
+            <li>Ar308 FDE   : {{ inv.ar308fde }}</li>
+            <li>Ar308 Stlh  : {{ inv.ar308stealth}}</li>
+            <li>Ar308 OD : {{ inv.ar308od}}</li>
+            <li>Ar308 Rifle   : {{ inv.ar308rifle }}</li>
+            <li>Ar308 Pink  : {{ inv.ar308pink}}</li>
+            <li>Tac9 Black : {{ inv.tac9black}}</li>
+            <li>Tac9 FDE   : {{ inv.tac9fde }}</li>
+            <li>Tac9 Stlh  : {{ inv.tac9stealth}}</li>
+            <li>Tac9 OD : {{ inv.tac9od}}</li>
+            <li>Tac9 Rifle   : {{ inv.tac9rifle }}</li>
+            <li>80 Black : {{ inv.black80}}</li>
+            <li>80 FDE   : {{ inv.fde80 }}</li>
+            <li>80 Stlh  : {{ inv.stealth80}}</li>
+            <li>80 Rifle : {{ inv.rifle80}}</li>
+        </ul>
+        {% endfor %}      
+        
+    </div> 
+</div> 
+{% endblock %}
