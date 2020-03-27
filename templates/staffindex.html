@@ -14,7 +14,7 @@
 {% for inv in object_list %}
 <div class="row">
     <!--StartSection -->
-    <div class="col-sm-4">
+    <div class="col-sm-3 col-md-3 col-lg-3">
         <!--inventory --> 
         <h3>Available Inventory</h3>
         <ul>
@@ -44,7 +44,7 @@
    </div>
 {% endfor %}
    
-   <div class="col-sm-6">
+   <div class="col-sm-3 col-md-6 col-lg-4">
     <h3> Purchase Orders</h3>
    {% for obj in orders%}
       <!--orders -->     
@@ -53,7 +53,7 @@
          </ul>
    {% endfor %}
    </div>
-   <div class="col-sm-6">
+   <div class="col-sm-3 col-md-6 col-lg-4">
     
       {% for objects in consumables %}
       <div >
