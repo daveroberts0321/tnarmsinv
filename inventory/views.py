@@ -17,6 +17,13 @@ class Index(TemplateView):
 class StaffIndex(TemplateView):
     template_name = 'staffindex.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['consumables'] = Consumables.objects.all()
+        context['object_list'] = Inventory.objects.all()
+        context['orders'] = Orders.objects.all()
+        return context
+
 class AddInvView(LoginRequiredMixin, CreateView):
     model = Inventory 
     fields = '__all__'

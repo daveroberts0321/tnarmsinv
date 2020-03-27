@@ -4,20 +4,81 @@
 <div class="container-fluid">
    {% qr_from_text "URLTO:https://tnainventory.herokuapp.com/staff/updateorder-" size="s" image_format="png" error_correction="L" %}
    
-   <h5> how everything works </h5>
-<p> What we are trying to do </p>
-<p> Our inventory and or brass/ejectors/build kits ect shut us down almost monthly. This system is designed 
-to help with keeping track of all this</p>
-<p> April</p>
-<li>When you add an item to the purchase order it must be removed by color and model when we get it in abnd also added to the Inventory as available. If that amount closes that purchase order color. Then delete the purchase order </li></br>
-<p> When you put in a purchase order, add it under "purchase orders" by color and model with the invoice #
-. If we receive a partial shipment then update the system to what we still have open. When the whole order is complete then 
-delete the entire order. Add up the total brass inserts/ejectors/serial num inserts for that order. Take it off 
-the consumables count. This is done only when the order is submitted.</p>
-<p>Amy/ JT</p>
-<p>Amy will make a list of what items sold in what amounts the day before once a day. That list will be used by JT to pull the inventory from just this system. Nowhere else. 
-I dont care if its getting shipped or not. If we are backordered 150 black recievers we need to show our available inventory as nothing even if they are still here.
-This goes the same with the AR15 kits, Tac-9 arms (located in consumables btw) .... everything</p>
-<h5> This is not meant to be a final version, just a place to get started.. Changes and suggestions are welcomed and encouraged</h5> 
+<div style="background-color:blue">
+   <h1 class = "text-white">Staff Home</h1>
+</div>   
+{% for inv in object_list %}
+<div class="row">
+    <!--StartSection -->
+    <div class="col-sm-4">
+        <!--inventory --> 
+        <h3>Inventory</h3>
+        <ul>
+            <li>Ar15 Black : {{ inv.ar15black}}</li>
+            <li>Ar15 FDE   : {{ inv.ar15fde }}</li>
+            <li>Ar15 Stlh  : {{ inv.ar15stealth}}</li>
+            <li>Ar15 OD : {{ inv.ar15od}}</li>
+            <li>Ar15 Rifle   : {{ inv.ar15rifle }}</li>
+            <li>Ar15 Clear  : {{ inv.ar15clear}}</li>
+            <li>Ar15 Pink  : {{ inv.ar15pink}}</li>
+            <li>Ar308 Black : {{ inv.ar308black}}</li>
+            <li>Ar308 FDE   : {{ inv.ar308fde }}</li>
+            <li>Ar308 Stlh  : {{ inv.ar308stealth}}</li>
+            <li>Ar308 OD : {{ inv.ar308od}}</li>
+            <li>Ar308 Rifle   : {{ inv.ar308rifle }}</li>
+            <li>Ar308 Pink  : {{ inv.ar308pink}}</li>
+            <li>Tac9 Black : {{ inv.tac9black}}</li>
+            <li>Tac9 FDE   : {{ inv.tac9fde }}</li>
+            <li>Tac9 Stlh  : {{ inv.tac9stealth}}</li>
+            <li>Tac9 OD : {{ inv.tac9od}}</li>
+            <li>Tac9 Rifle   : {{ inv.tac9rifle }}</li>
+            <li>80 Black : {{ inv.black80}}</li>
+            <li>80 FDE   : {{ inv.fde80 }}</li>
+            <li>80 Stlh  : {{ inv.stealth80}}</li>
+            <li>80 Rifle : {{ inv.rifle80}}</li>           
+        </ul>
+   </div>
+{% endfor %}
+   
+   <div class="col-sm-6">
+    <h3> Purchase Orders</h3>
+   {% for obj in orders%}
+      <!--orders -->     
+         <ul class="list-group">
+            <li class="list-group-item"><p> {{ obj.typemodel }} - {{ obj.orderamount }} {{ obj.color  }}- {{ obj.date }} Invoice # {{obj.purchase_order_num}}</p></li>
+         </ul>
+   {% endfor %}
+   </div>
+   <div class="col-sm-6">
+    
+      {% for objects in consumables %}
+      <div >
+        <!--StartSection -->
+            <!--inventory --> 
+         <h3>Consumables</h3>
+         <ul>
+            <li><p>- Big Brass: {{ objects.bigbrass }}  </li>
+            <li><p>- Little Brass: {{ objects.littlebrass  }} </p></li>
+            <li><p>- Serial Numbers: {{ objects.serialnum }} </p></li>
+            <li><p>- Tac-9 Arms: {{objects.tac9arm}} </p></li>
+            <li><p>- TAC-9 Buttons: {{ objects.tac9button }} </p></li>
+            <li><p>- Tac 9 Ejectors: {{ objects.tac9ejector  }} </p></li>
+            <li><p>- Ar15 Kit : {{ objects.ar15kit  }} </p></li>
+            <li><p>- Ar308 Kit : {{ objects.AR308kit  }} </p></li>
+            <li><p>- Extended Mag Button : {{ objects.extendedmagrelease  }} </p></li>
+            <li><p>- Tac9 Buffer Assembly : {{ objects.tac9bufferkit }}</p></li>
+            <li><p>- AR15 Buffer Assemblies : {{ objects.AR15_Buffer_Assembly}} </p></li>
+            <li><p>- AR308 Buffer Assemblies : {{ objects.AR308_Buffer_Assembly}} </p></li>
+            <li><p>- Ar308 Kit : {{ objects.AR308kit  }} </p></li>
+            <li><p>- 80 Jigs : {{ objects.jigs  }} </p></li>
+            <li><p>- Drill Bits : {{ objects.drillbits  }} </p></li>
+            <li><p>- Jig Screws : {{ objects.jigscrew  }} </p></li>
+            <li><p>- Pistol Grip Screws : {{ objects.pistolgripscrew  }} </p></li>           
+         </ul>
+      {% endfor %}
+      </div>
+
+
+
 </div>
 {% endblock %}
