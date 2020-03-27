@@ -1,12 +1,16 @@
 {% extends 'staffbase.html'%}
 {% load qr_code %}
 {% block bodyblock %}
-<div class="container-fluid">
-   {% qr_from_text "URLTO:https://tnainventory.herokuapp.com/staff/updateorder-" size="s" image_format="png" error_correction="L" %}
-   
+  
 <div style="background-color:blue">
    <h1 class = "text-white">Staff Home</h1>
-</div>   
+</div> 
+<div class="container-fluid">
+   <h5> Tn Arms Co Homepage</h5>
+   <p> Still a work in progress, lots more to do.</p>
+   <p> Needs to be updated daily.</p>
+   <p> ...Dave</p>
+</div>  
 {% for inv in object_list %}
 <div class="row">
     <!--StartSection -->
