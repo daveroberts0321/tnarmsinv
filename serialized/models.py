@@ -7,7 +7,7 @@ from qr_code.qrcode.utils import ContactDetail
 ''' .CSV files will be uploaded using https://medium.com/@simathapa111/how-to-upload-a-csv-file-in-django-3a0d6295f624'''
 # Create your models here.
 TYPE = (
-    ('AR15', "AR15"),
+    ('TNARMS15', "TNARMS15"),
     ('AR308', 'AR308'),
     ('TAC9', 'TAC9')
     )
@@ -23,13 +23,13 @@ COLOR = (
 )
 class Serialized(models.Model):
     """fields for serialized equipment to be used with QR codes. using qr_code: https://django-qr-code.readthedocs.io/en/latest/pages/README.html#usage """
-    serialnumber = models.CharField(max_length=20)
+    serialnumber = models.CharField(max_length=20, unique = True)
     modeltype = models.CharField(max_length=50, choices = TYPE, default = 'AR15')
     color = models.CharField(max_length=50, choices = COLOR, default = 'BLK')
     dateaquired = models.DateField( auto_now_add=True)
-    datedeposed = models.DateField(blank = True, auto_now_add=False)
+    datedeposed = models.DateField(blank = True, default = '1775/11/10', auto_now_add=False)
     ininventory = models.BooleanField(default = True)
-    ordernumber = models.CharField(max_length=50, blank = True)
+    ordernumber = models.CharField(max_length=50, default = '0000', blank = True)
     notes = models.TextField(blank = True)
    
     

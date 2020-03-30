@@ -36,12 +36,12 @@
     <!--inventory --> 
     <ul>
         
-        {% if inv.ininventory %}
-        <li><p> In Inventory, <a href=""> {{ inv.serialnumber }}</a> , {{ inv.modeltype }},  {{ inv.color }}, Date Aquired: {{ inv.dateaquired }}, Date Deposed: {{ inv.datedeposed }} </p></li>
-        <p>Notes: {{ inv.notes }}</a></p>
+        {% if inv.ininventory == True %}
+        - In Inventory, <a href="{% url 'serialized:updateserialized' pk=inv.pk %}"> {{ inv.serialnumber }}</a> , {{ inv.modeltype }},  {{ inv.color }}, Date Aquired: {{ inv.dateaquired }}, Date Deposed: {{ inv.datedeposed }}
+        Notes: {{ inv.notes }}</a>
         {% else %}
-        </li><p> Not in Inventory, <a href=""> {{ inv.serialnumber }}</a> , Model:{{ inv.modeltype }}, Color: {{ inv.color }}, Date Aquired: {{ inv.dateaquired }}, Date Deposed: {{ inv.datedeposed }} </p></li>
-        <p>Notes: {{ inv.notes }}</p> </li>
+        -Not in Inventory, <a href="{% url 'serialized:updateserialized' pk=inv.pk %}"> {{ inv.serialnumber }}</a> , Model:{{ inv.modeltype }}, Color: {{ inv.color }}, Date Aquired: {{ inv.dateaquired }}, Date Deposed: {{ inv.datedeposed }} 
+        Notes: {{ inv.notes }}
         {% endif %}           
                 
     </ul>

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'inventory',
     'serialized',
     'login',
+    'ffl',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
