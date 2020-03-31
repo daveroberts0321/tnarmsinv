@@ -1,5 +1,6 @@
 
 from django.shortcuts import render
+from django.db.models import Q
 from .models import FFL
 from .forms import Addffl
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -14,6 +15,7 @@ from django.views.generic.list import ListView
 # Create your views here.
 class FFLIndex(LoginRequiredMixin, TemplateView):
     template_name = 'ffl/fflindex.html'
+    paginate_by = 20
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -39,4 +41,15 @@ class UpdateFFL(LoginRequiredMixin, UpdateView):
     template_name = 'ffl/updateffl.html'
     fields = '__all__'
     
+class SearchFFL(ListView):
+    model = FFL
+    template_name = 'ffl/search_results.html'
+    paginate_by = 20
+
+    def get_queryset(self): # new
+        query = self.request.GET.get('q')
+        object_list = FFL.objects.filter(
+            Q(fflcompanyname__icontains=query) | Q(fflnumber__icontains=query) | Q(fflmailaddress__icontains=query)
+        )
+        return object_list
 

@@ -1,7 +1,9 @@
 {% extends 'staffbase.html' %}
 {% block bodyblock %}
+{% load static %}
+
 <div class="row">
-  <div class="col-2">
+    <div class="col-12">
         <nav class="navbar navbar-expand navbar-light bg-light">
             <nav class="navbar navbar-expand navbar-light bg-light">
                 <ul class="nav navbar-nav">
@@ -12,27 +14,19 @@
                         <a class="nav-link" href="{% url "ffl:addffl" %}">Add FFL</a>
                     </li>
                 </ul>
-               
             </nav>
         </nav>
-        
-</div>
-  <div class="col">
-    
-    <h6> FFL Search: by FFL Number, Premise Address, Company Name</h6>
-        <form action="{% url 'ffl:search' %}" method="get">
-  <input name="q" type="text" placeholder="Search...">
-</form></br>
-    <h3> FFL's On File </h3>
-        <ul>
-        {% for ffl in ffl %}
-
-            <li> Company Name : {{ ffl.fflcompanyname }}, FFL# {{ ffl.fflnumber }}, FFL Exp: {{ ffl.fflexp }}<a href="{% url 'ffl:ffldetail' pk=ffl.pk %}">View</a>
-
-        {% empty %}
-        No FFLS Listed, Go Enter Some 
+    </div>
+    <div class=="col-12">
+    <div class="container-fluid">
+        {% for obj in object_list %}
+        <h3>{{obj.fflcompanyname }}</h3>
+        <li>FFL Number: {{obj.fflnumber }}
+        <li>FFL Exp: {{obj.fflexp }}
+        <li>Premise Address: {{obj.fflmailaddress }}</br></br>
+        <h5><a href="{% url 'ffl:ffldetail' pk=obj.pk %}">  View</a></h5>
         {% endfor %}
-        </ul>
+    </div>
+    
 </div>
- 
 {% endblock %}

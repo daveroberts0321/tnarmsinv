@@ -6,10 +6,11 @@
    <h1 class = "text-white">Staff Home</h1>
 </div> 
 <div class="container-fluid">
-   <h5> Tn Arms Co Homepage</h5>
-   <p> Still a work in progress, lots more to do.</p>
-   <p> Needs to be updated daily.</p>
-   <p> ...Dave</p>
+   <h5> Tn Arms Co Homepage</h5></br>
+   <h6> On File FFL Search: by FFL Number, Premise Address, Company Name</h6>
+        <form action="{% url 'ffl:search' %}" method="get">
+  <input name="q" type="text" placeholder="Search...">
+</form></br>
 </div>  
 {% for inv in object_list %}
 <div class="row">
