@@ -23,6 +23,7 @@ class FFLIndex(LoginRequiredMixin, TemplateView):
 
 class FFLDetail(LoginRequiredMixin, DetailView):
     model = FFL
+    template_name = 'ffl/ffl_detail.html'
 
 
 class AddFFL(LoginRequiredMixin, CreateView):
@@ -30,7 +31,7 @@ class AddFFL(LoginRequiredMixin, CreateView):
     fields = '__all__'
     query_pk_and_slug = True
     template_name = 'ffl/addffl_form.html'
-    success_url = 'ffl:fflindex'
+    success_url = reverse_lazy('ffl:fflindex')
 
 class UpdateFFL(LoginRequiredMixin, UpdateView):
     model = FFL

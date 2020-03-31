@@ -5,12 +5,12 @@ class FFL(models.Model):
 
     fflnumber = models.CharField(max_length=50, verbose_name='FFL Number')
     fflexp = models.DateField(default = '1775-11-10', verbose_name='FFL Exp Date xxxx-xx-xx')
-    fflimage = models.ImageField(blank = True)
+    fflimage = models.ImageField(blank = True, upload_to='pic_folder/%Y,%m/,%D/', height_field=None, width_field=None, max_length=100, verbose_name='FFL Picture')
     fflcompanyname = models.CharField(max_length=50, verbose_name='Company Name')
     fflphone = models.CharField(max_length=50,default = 'none', verbose_name='Phone Number')
     fflemail = models.CharField(max_length=50, default = 'none', verbose_name='Email')
     fflcontactname = models.CharField(max_length=50, default = 'none', verbose_name='Contact Name')
-    fflmailaddress = models.CharField(max_length=200, verbose_name='Mailing Address')
+    fflmailaddress = models.CharField(max_length=200, verbose_name='Premise Address')
     notes = models.TextField(blank = True)
 
 

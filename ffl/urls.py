@@ -1,6 +1,10 @@
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from .views import FFLIndex, UpdateFFL, AddFFL, FFLDetail
+from django.contrib.staticfiles.urls import static
+from django.views.static import serve
+
 app_name = 'ffl'
 
 urlpatterns = [
@@ -10,3 +14,5 @@ urlpatterns = [
     path('ffldetail-<int:pk>/', FFLDetail.as_view(), name='ffldetail'),
     path('updateffl-<int:pk>/', UpdateFFL.as_view(), name = 'updateffl')
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
