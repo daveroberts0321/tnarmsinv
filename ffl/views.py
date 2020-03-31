@@ -1,3 +1,6 @@
+
+import pandas as pd
+
 from django.shortcuts import render
 from .models import FFL
 from .forms import Addffl
