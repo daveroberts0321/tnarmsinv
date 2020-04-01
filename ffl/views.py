@@ -92,7 +92,7 @@ def FFLUpload(request):
             fflstate=column[3],
             fflexp=column[4],            
             fflmailaddress=column[5],                  
-            fflcfd=column[6],
+            fflcfd=column[6].get(),
             fflzipcode=column[7],
             notes=column[8]
             )
