@@ -1,0 +1,24 @@
+{% extends 'staffbase.html'%}
+{% block bodyblock%}
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+<!--                | means OR operator-->
+                <strong>{{message|safe}}</strong>
+            </div>
+        {% endfor %}
+    
+    {% else %}
+    {{order}}
+    {% endif %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file1"> Upload a file</label>
+        <input type="file" id="file1" name="file">
+        <small>Only accepts CSV files</small>
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{% url "ffl:fflindex" %}"> <h5>Cancel</h5></a>
+</body>
+</html>
+{% endblock %}

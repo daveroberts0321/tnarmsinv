@@ -4,13 +4,16 @@ from django.db import models
 class FFL(models.Model):
 
     fflnumber = models.CharField(max_length=50, verbose_name='FFL Number')
-    fflexp = models.DateField(default = '2020-01-01', verbose_name='FFL Exp Date xxxx-xx-xx')
-    fflimage = models.ImageField(blank = True, upload_to='pic_folder/%Y,%m/,%D/', height_field=None, width_field=None, max_length=100, verbose_name='FFL Picture')
+    fflexp = models.CharField(max_length=50, default = '2020-01-01', verbose_name='FFL Exp Date xxxx-xx-xx')
     fflcompanyname = models.CharField(max_length=50, verbose_name='Company Name')
     fflphone = models.CharField(max_length=50,default = 'none', verbose_name='Phone Number')
     fflemail = models.CharField(max_length=50, default = 'none', verbose_name='Email')
     fflcontactname = models.CharField(max_length=50, default = 'none', verbose_name='Contact Name')
     fflmailaddress = models.CharField(max_length=200, verbose_name='Premise Address')
+    fflcity = models.CharField(max_length=50, verbose_name='City', default = 'none')
+    fflstate = models.CharField(max_length=50, verbose_name='State', default = 'none')
+    fflzipcode = models.CharField(max_length=50, verbose_name='Zipcode', default = 'none')
+    fflcfd = models.CharField(max_length=50, verbose_name='CFD', default = 'none')  
     notes = models.TextField(blank = True)
 
 
@@ -20,3 +23,4 @@ class FFL(models.Model):
     class Meta:
         verbose_name = 'FFL'
         verbose_name_plural = 'FFLs'
+        ordering = ['fflstate']

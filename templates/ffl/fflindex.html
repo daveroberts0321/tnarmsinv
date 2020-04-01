@@ -24,15 +24,30 @@
   <input name="q" type="text" placeholder="Search...">
 </form></br>
     <h3> FFL's On File </h3>
-        <ul>
+        <!--pagination -->
         {% for ffl in ffl %}
 
-            <li> Company Name : {{ ffl.fflcompanyname }}, FFL# {{ ffl.fflnumber }}, FFL Exp: {{ ffl.fflexp }}<a href="{% url 'ffl:ffldetail' pk=ffl.pk %}">View</a>
+            <li> {{ ffl.fflcompanyname }},State: {{ffl.fflstate}}, FFL# {{ ffl.fflnumber }}, FFL Exp: {{ ffl.fflexp }}<a href="{% url 'ffl:ffldetail' pk=ffl.pk %}">View</a>
 
         {% empty %}
         No FFLS Listed, Go Enter Some 
         {% endfor %}
-        </ul>
+        <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
 </div>
  
 {% endblock %}
