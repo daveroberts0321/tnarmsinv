@@ -48,7 +48,7 @@ class AddFFL(LoginRequiredMixin, CreateView):
 
 class UpdateFFL(LoginRequiredMixin, UpdateView):
     model = FFL
-    success_url = 'ffl:fflindex'
+    success_url = reverse_lazy('ffl:fflindex')
     template_name = 'ffl/updateffl.html'
     fields = '__all__'
     

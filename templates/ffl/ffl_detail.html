@@ -19,17 +19,12 @@
     </div>
     <div class="col-3">
     <h3> {{ object.fflcompanyname }} </h3>
-<!--
-    <div class="media">
-        <a class="d-flex" href="{{object.fflimage.url}}">
-            <img src="{{ object.fflimage.url }}" alt="FFL Image">
-        </a>
-        <div class="media-body">
-            <h5>FFL Image On File</h5>
-            Media text
-        </div>
-    </div>
-    -->
+        {% if object.ffldontship %}
+        <h5>Dont Ship to this FFL</h5>
+        {% endif %}
+        {% if object.fflshiptomail %}
+        <h5>Ship to Mailing Address</h5>
+        {% endif %}
         <ul>
             <li>Premise Address: {{ object.fflmailaddress}}
             {{object.fflcity}} {{object.fflstate}} {{object.fflzipcode}}
