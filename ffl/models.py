@@ -13,7 +13,7 @@ class FFL(models.Model):
     fflcity = models.CharField(max_length=50, verbose_name='City', default = 'none')
     fflstate = models.CharField(max_length=50, verbose_name='State', default = 'none')
     fflzipcode = models.CharField(max_length=50, verbose_name='Zipcode', default = 'none')
-    fflcfd = models.CharField(max_length=50, verbose_name='CFD', default = 'none')  
+    fflcfd = models.CharField(max_length=100, verbose_name='CFD', default = 'none')  
     ffldontship = models.BooleanField(default = False, verbose_name='FFL doesnt accept shipments')
     fflshiptomail = models.BooleanField(default = False, verbose_name='FFL request we use mailing address')
     notes = models.TextField(blank = True)
