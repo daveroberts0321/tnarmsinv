@@ -36,12 +36,12 @@ def SerializedUpload(request):
     next(io_string)
     for column in csv.reader(io_string, delimiter=',', quotechar="|"):
         _, created = Serialized.objects.update_or_create(
-            serialnumber=column[6],
-            gunmasterid=column[0],
-            modeltype=column[3],
-            color=column[4],
-            dateaquired=column[7],
-            notes=column[9],
+            serialnumber=column[0],
+            gunmasterid=column[1],
+            modeltype=column[2],
+            color=column[3],
+            dateaquired=column[4],
+            notes=column[5],
             )
     context = {}
     return render(request, template, context)
