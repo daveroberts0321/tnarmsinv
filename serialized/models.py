@@ -25,15 +25,15 @@ COLOR = (
 
 class Serialized(models.Model):
     """fields for serialized equipment to be used with QR codes. using qr_code: https://django-qr-code.readthedocs.io/en/latest/pages/README.html#usage """
-    serialnumber = models.CharField(max_length=20, default = 'none')
-    gunmasterid = models.CharField(max_length=50, blank = True)
-    modeltype = models.CharField(max_length=50, default = 'AR15')
-    color = models.CharField(max_length=50, default = 'BLK')
-    dateaquired = models.CharField(max_length=15, default='01-01-2020')
-    datedeposed = models.CharField(max_length=15, default='01-01-2020')
-    ininventory = models.BooleanField(default = True)
-    ordernumber = models.CharField(max_length=50, default = '0000', blank = True)
-    notes = models.TextField(blank = True)
+    serialnumber = models.CharField(max_length=20,null=True, default = 'none')
+    gunmasterid = models.CharField(max_length=50,null=True, blank = True)
+    modeltype = models.CharField(max_length=50,null=True, default = 'AR15')
+    color = models.CharField(max_length=50,null=True, default = 'BLK')
+    dateaquired = models.CharField(max_length=15,null=True, default='01-01-2020')
+    datedeposed = models.CharField(max_length=15,null=True, default='01-01-2020')
+    ininventory = models.BooleanField(default = True, null=True,)
+    ordernumber = models.CharField(max_length=50,null=True, default = '0000', blank = True)
+    notes = models.TextField(blank = True, null=True,)
     
 
     
