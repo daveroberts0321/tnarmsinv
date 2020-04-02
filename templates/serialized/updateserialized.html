@@ -1,0 +1,15 @@
+{% extends 'staffbase.html' %}
+{% block bodyblock %}
+
+<div class="col-4">
+  <h3>Update FFL</h3>
+  <h4><a href="{% url 'serialized:serializedlist' %}">Cancel</a></h4>
+    
+    <!--update order form -->
+    <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+    </form>
+</div>
+{% endblock %}
+    

@@ -31,6 +31,7 @@ urlpatterns = [
     path('staff/updateconsumables-<int:pk>', UpdateConsumables.as_view(), name = 'updateconsumables'),
     path('serialized/', include('serialized.urls')),
     path('ffl/', include('ffl.urls')),
+    path('shipments/', include('shipments.urls')),
     path('advantage', AdvantageList.as_view(), name = 'advantage'),
     path('login/', include('login.urls')), 
     path('login/', include('django.contrib.auth.urls')), 

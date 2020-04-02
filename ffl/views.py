@@ -22,7 +22,7 @@ class FFLIndex(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['ffl'] = FFL.objects.all()
+        context['ffl'] = FFL.objects.all()[:50]
         #context['fflcount'] = FFL.objects.all.count()        
         return context
 
@@ -92,7 +92,7 @@ def FFLUpload(request):
             fflstate=column[3],
             fflexp=column[4],            
             fflmailaddress=column[5],                  
-            fflcfd=column[6].get(),
+            fflcfd=column[6],
             fflzipcode=column[7],
             notes=column[8]
             )

@@ -2,6 +2,7 @@
 import os
 import django_heroku
 import environ
+from decouple import config
 
 DEBUG = True 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -15,6 +16,9 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')gl^isdg-(jv&n%(!!#8pl@_ucp7oie&g+mc@_l0%px5mb8n2v'
+BigCommerce_Client_ID='5zu8djlu07xick65yf3vgs3urf6oxm1'
+BigCommerce_Client_Secret='e6d39bb59d02e87f66844799d28949d1fee712c7d18ca32daaa3f3dcd5c4c2cb'
+BigCommerce_Access='993u0lwo671cywg6oxuuhn53elkw28p'
 
 ''' django-environ / .env file for secret keys'''
 
@@ -23,6 +27,7 @@ SECRET_KEY = ')gl^isdg-(jv&n%(!!#8pl@_ucp7oie&g+mc@_l0%px5mb8n2v'
 
 LOGIN_REDIRECT_URL = 'staff'
 LOGOUT_REDIRECT_URL = 'index'
+
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '.herokuapp.com',
@@ -37,6 +42,8 @@ INSTALLED_APPS = [
     'serialized',
     'login',
     'ffl',
+    'shipments', 
+    'bigcommerce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,6 +91,7 @@ AUTH_USER_MODEL = 'login.CustomUser' # new
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -119,9 +127,9 @@ TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

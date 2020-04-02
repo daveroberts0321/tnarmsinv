@@ -1,6 +1,7 @@
 from django.db import models
+from django.utils import formats
 from django.utils import timezone
-from datetime import date
+from datetime import datetime, date
 from qr_code.qrcode.utils import ContactDetail
 
 
@@ -21,17 +22,20 @@ COLOR = (
     ('CLEAR', 'CLEAR'),
     ('PINK', 'PINK')
 )
+
 class Serialized(models.Model):
     """fields for serialized equipment to be used with QR codes. using qr_code: https://django-qr-code.readthedocs.io/en/latest/pages/README.html#usage """
-    serialnumber = models.CharField(max_length=20, unique = True)
-    modeltype = models.CharField(max_length=50, choices = TYPE, default = 'AR15')
-    color = models.CharField(max_length=50, choices = COLOR, default = 'BLK')
-    dateaquired = models.DateField( auto_now_add=True)
-    datedeposed = models.DateField(blank = True, default = '1775/11/10', auto_now_add=False)
+    serialnumber = models.CharField(max_length=20, default = 'none')
+    gunmasterid = models.CharField(max_length=50, blank = True)
+    modeltype = models.CharField(max_length=50, default = 'AR15')
+    color = models.CharField(max_length=50, default = 'BLK')
+    dateaquired = models.CharField(max_length=15, default='01-01-2020')
+    datedeposed = models.CharField(max_length=15, default='01-01-2020')
     ininventory = models.BooleanField(default = True)
     ordernumber = models.CharField(max_length=50, default = '0000', blank = True)
     notes = models.TextField(blank = True)
-   
+    
+
     
     def __str__(self):
         """Unicode representation of Serialized."""
@@ -42,4 +46,4 @@ class Serialized(models.Model):
         """Return absolute url for Serialized."""
         return ('')
 
-    # TODO: Define custom methods here
+

@@ -1,0 +1,29 @@
+{% extends 'staffbase.html' %}
+{% block bodyblock %}
+{% load static %}
+
+
+    <div class=="col-12">
+    <div class="container-fluid">
+        {% for obj in object_list %}
+        <h3>Serial Number:{{obj.serialnumber }}</h3>
+        <li>Gunstore Master Firearm ID: {{obj.gunmasterid }}
+        <li>In Inventory: {{obj.ininventory}}
+        <li>Model: {{obj.modeltype }}
+        <li>Color:: {{obj.color }}
+        <li>Date Aquired: {{obj.dateaquired }}
+        {% if obj.datedeposed == '01-01-2020'%}
+        <li>Date Deposed : On Hand
+        {% else %}
+        <li>Date Deposed: {{obj.datedeposed }}
+        {% endif %}
+        <li>Model: {{obj.modeltype }}
+        <li>Order#: {{obj.ordernumber}}
+        <li>Notes: {{obj.notes}}
+        </br></br>
+        <h5><a href="{% url 'serialized:updateserialized' pk=obj.pk %}">  Update</a></h5>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}

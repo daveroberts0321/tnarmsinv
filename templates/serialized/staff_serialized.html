@@ -16,22 +16,19 @@
 </nav>
 <h2> Ya'll dont mess with this yet, still working on it</h2>
 <h3> Serial Number Search</h3>
-<div class="card-columns">
-    <div class="card">   
-        <div class="form-group">
-        <label for="Search"></label>
-        <input type="text"
-            class="form-control" name="" id="" aria-describedby="helpId" placeholder="Enter Serial Number">
-            <input name="" id="" class="btn btn-primary" type="button" value="Submit">
-            <small id="helpId" class="form-text text-muted">Please enter the Serial Number of the Receiver you are looking for</small>
-    </div>          
 </div>
+<div class="container-fluid">
+    <h6> FFL Search: by Serial Number, Order Number, Firearm ID</h6>
+        <form action="{% url 'serialized:search' %}" method="get">
+  <input name="q" type="text" placeholder="Search...">
+</form></br>
+</div>
+
+<h3>Serial Number Listings</h3>
 <h5> To Update Inventory, Hit the Blue Serial Number Link</h5>
-</div>
-<h3>Serial Number List</h3>
-{% for inv in object_list %}
 
     <!--StartSection -->
+{% for inv in object_list %}
 <div>
     <!--inventory --> 
     <ul>
