@@ -23,7 +23,7 @@
         <h3>{{obj.fflcompanyname }}</h3>
         <li>FFL Number: {{obj.fflnumber }}
         <li>FFL Exp: {{obj.fflexp }}
-        <li>Premise Address: {{obj.fflmailaddress }}, {{ffl.fflcity}} {{ffl.fflstate}}</br></br>
+        <li>Premise Address: {{obj.fflmailaddress }}, {{obj.fflcity}} {{obj.fflstate}} {{obj.fflzipcode}}</br></br>
         <h5><a href="{% url 'ffl:ffldetail' pk=obj.pk %}">  View</a></h5>
         {% endfor %}
     </div>
