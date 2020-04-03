@@ -60,7 +60,10 @@ class SearchFFL(ListView):
     def get_queryset(self): # new
         query = self.request.GET.get('q')
         object_list = FFL.objects.filter(
-            Q(fflcompanyname__icontains=query) | Q(fflnumber__icontains=query) | Q(fflmailaddress__icontains=query)
+            Q(fflcompanyname__icontains=query) | 
+            Q(fflnumber__icontains=query) | 
+            Q(fflmailaddress__icontains=query) |
+            Q(fflcity__icontains=query)
         )
         return object_list
 

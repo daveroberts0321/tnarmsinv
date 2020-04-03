@@ -83,7 +83,7 @@ class SearchSerialized(LoginRequiredMixin, ListView):
     def get_queryset(self): # new
         query = self.request.GET.get('q')
         object_list = Serialized.objects.filter(
-            Q(serialnumber__icontains=query) | Q(color__icontains=query) | Q(ordernumber__icontains=query)
+            Q(serialnumber__icontains=query) | Q(color__icontains=query) | Q(ordernumber__icontains=query) 
         )
         return object_list
 
