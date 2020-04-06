@@ -22,7 +22,7 @@
         {% for obj in object_list %}
         <h3>{{obj.fflcompanyname }}</h3>
         <li>FFL Number: {{obj.fflnumber }}
-        <li>FFL Exp: {{obj.fflexp }}
+        <h5><li>FFL Exp: {{obj.fflexp }}</h5>
         <li>Premise Address: {{obj.fflmailaddress }}, {{obj.fflcity}} {{obj.fflstate}} {{obj.fflzipcode}}</br></br>
         <h5><a href="{% url 'ffl:ffldetail' pk=obj.pk %}">  View</a></h5>
         {% endfor %}

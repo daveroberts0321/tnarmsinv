@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'login',
     'ffl',
     'shipments', 
-    'bigcommerce',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #QR Codes
     'qr_code',
+    'django_extensions',
+    'bigcommerce',
     
 
 ]
