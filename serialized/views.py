@@ -46,6 +46,15 @@ def SerializedUpload(request):
     context = {}
     return render(request, template, context)
 
+def qrgenerator(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['First row', 'Foo', 'Bar', 'Baz'])
+    
+
+
 class AddSerialized(LoginRequiredMixin, CreateView):
     model = Serialized
     fields = '__all__'

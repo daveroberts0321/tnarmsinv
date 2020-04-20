@@ -136,7 +136,7 @@ class Consumables(models.Model):
     
 
     def __str__(self):
-        return f" Big Brass{self.bigbrass} Little Brass: {self.littlebrass}, Ser#: {self.sernum}, Tac9 Arm: {self.tac9arm}"  
+        return f" Big Brass{self.bigbrass} Little Brass: {self.littlebrass}, Ser#: {self.serialnum}, Tac9 Arm: {self.tac9arm}"  
 
 class Supplier(models.Model):
     '''suppliers of consumables and regular items'''

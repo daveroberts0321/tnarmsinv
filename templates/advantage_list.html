@@ -30,7 +30,9 @@
             <!--inventory --> 
             <h3>Purchase Orders</h3>
             {% for obj in orders %}
+            {% if typemodel == AR15 or AR308 or TAC9 or 80%}
             <p> {{ obj.typemodel }} - {{ obj.orderamount }} {{ obj.color  }}- {{ obj.date }} Invoice # {{obj.purchase_order_num}}</p>           
+            {% endif %}           
             {% empty %}
             <p> No orders to show </p>
             {% endfor %}
