@@ -1,7 +1,10 @@
 {% extends 'staffbase.html' %}
 {% block bodyblock %}
+<div style="background-color:blue">
+    <h1 class = "text-white">Purchase Orders</h1>
+    </div> 
+<div class="col">
 <div class="container-fluid">
-    <h1>Current Purchase Orders</h1>
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'addorder' %}">Add Purchase Order<span class="sr-only">(current)</span></a>

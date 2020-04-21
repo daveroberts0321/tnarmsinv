@@ -1,5 +1,9 @@
 {% extends 'staffbase.html' %}
 {% block bodyblock %}
+<div style="background-color:blue">
+    <h1 class = "text-white">FFL's On File</h1>
+    </div> 
+<div class="col">
 <div class="row">
   <div class="col-2">
         <nav class="navbar navbar-expand navbar-light bg-light">
@@ -16,9 +20,7 @@
             </nav>
         </nav>
         
-</div>
-  <div class="col">
-    
+</div>    
     <h6> FFL Search: by FFL Number, Premise Address, Company Name</h6>
         <form action="{% url 'ffl:search' %}" method="get">
   <input name="q" type="text" placeholder="Search...">

@@ -1,8 +1,10 @@
 {% extends 'staffbase.html' %}
 {% block bodyblock %}
-<div class="container-fluid">
-    <h4>Current Consumables</h4>
-    
+<div style="background-color:blue">
+    <h1 class = "text-white">Consumables</h1>
+    </div> 
+<div class="col">
+<div class="container-fluid">    
 <ul>
 {% for objects in object_list %}
    <li><p>- Big Brass: {{ objects.bigbrass }}  </li>
