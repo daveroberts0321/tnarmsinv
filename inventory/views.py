@@ -13,7 +13,12 @@ from . forms import AddInv, AddOrders, AddConsumables, AddSupplier
 
 # Create your views here.
 class Index(TemplateView):
-    template_name = 'index.html'
+    template_name = 'inventory_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list'] = Inventory.objects.all()
+        return context
 
 class StaffIndex(TemplateView):
     template_name = 'staffindex.html'
