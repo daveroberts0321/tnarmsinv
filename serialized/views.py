@@ -66,7 +66,7 @@ class SerializedListView(LoginRequiredMixin, ListView):
     '''serialized inventory list view'''
     model = Serialized
     template_name = 'serialized/staff_serialized.html'
-    queryset = Serialized.objects.all()[:50]
+    queryset = Serialized.objects.all()[:25]
 
 
 class SerializedDetailView(LoginRequiredMixin, DetailView):
