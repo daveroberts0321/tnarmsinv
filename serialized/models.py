@@ -22,6 +22,7 @@ class Serialized(models.Model):
     
     class Meta:
         ordering = ['modeltype', 'color']
+
     
     def __str__(self):
         """Unicode representation of Serialized."""

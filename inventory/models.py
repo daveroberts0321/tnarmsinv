@@ -18,7 +18,8 @@ TYPE = (
     ('LPK308','LPK308'),
     ('TAC9ARM', 'TAC9ARM'),
     ('TAC9BUT', 'TAC9BUT'),
-    ('TAC9EJT', 'TAC9EJT')
+    ('TAC9EJT', 'TAC9EJT'),
+    ('SERNUM', 'SERNUM')
     )
 
 COLOR = (
