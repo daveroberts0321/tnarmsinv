@@ -100,6 +100,7 @@ class Orders(models.Model):
     typemodel = models.CharField(max_length=50, default = '80', choices = TYPE)
     color = models.CharField(max_length=50, choices = COLOR, default = 'BLK')
     date = models.DateTimeField(default = timezone.now)
+    notes = models.TextField(default = "none")
     
     def get_absolute_url(self):
         return reverse('orders-detail', kwargs={'pk': self.pk}) 

@@ -18,7 +18,7 @@
 -->
 
 {% for orders in object_list %}
-<li>Model: {{ orders.typemodel }} Amount: {{ orders.orderamount }} Color: {{ orders.color  }}- Order Date: {{ orders.date }} Invoice # {{orders.purchase_order_num}}<a href="{% url "updateorder" pk=orders.pk %}"> Update</a><a href="{% url "orderdelete" pk=orders.pk %}"> Delete</a></li>
+<li>Model: {{ orders.typemodel }} Amount: {{ orders.orderamount }} Color: {{ orders.color  }}- Order Date: {{ orders.date }} Invoice # {{orders.purchase_order_num}}<br> Notes: {{orders.notes}} <a href="{% url "updateorder" pk=orders.pk %}"> Update</a><a href="{% url "orderdelete" pk=orders.pk %}"> Delete</a></li>
     
 {% empty %}
     <li><h4> No orders listed </h4>
