@@ -29,7 +29,8 @@ COLOR = (
     ('OD', 'OD'),
     ('RIFLE', 'RIFLE'),
     ('CLEAR', 'CLEAR'),
-    ('PINK', 'PINK')
+    ('PINK', 'PINK'), 
+    ('Other', "Other")
 )
 
 class Inventory(models.Model):
