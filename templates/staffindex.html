@@ -7,7 +7,8 @@
 </div> 
 <div class="container-fluid">
    <h5> Tn Arms Co Homepage</h5></br>
-   <p>Database backups available at: https://data.heroku.com/datastores/af9b654a-8b6d-4f20-ac2a-955399893219#durability</p>
+   <p>Database backups available at:<a href= "https://data.heroku.com/datastores/af9b654a-8b6d-4f20-ac2a-955399893219#durability">
+   https://data.heroku.com/datastores/af9b654a-8b6d-4f20-ac2a-955399893219#durability</a></p>
    <h6> On File FFL Search: by FFL Number, Premise Address, Company Name</h6>
         <form action="{% url 'ffl:search' %}" method="get">
   <input name="q" type="text" placeholder="Search...">
@@ -49,7 +50,7 @@
    <div class="col-sm-3 col-md-6 col-lg-4">
     <h3> Purchase Orders</h3>
    {% for obj in orders%}
-      <!--orders -->     
+      <!--purchase orders -->     
          <ul class="list-group">
             <li class="list-group-item"><p> {{ obj.typemodel }} - {{ obj.orderamount }} {{ obj.color  }}- {{ obj.date }}<br><p>Notes: {{ obj.notes }}</p></p></li>
             
