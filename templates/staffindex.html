@@ -51,7 +51,8 @@
    {% for obj in orders%}
       <!--orders -->     
          <ul class="list-group">
-            <li class="list-group-item"><p> {{ obj.typemodel }} - {{ obj.orderamount }} {{ obj.color  }}- {{ obj.date }} Invoice # {{obj.purchase_order_num}}</p></li>
+            <li class="list-group-item"><p> {{ obj.typemodel }} - {{ obj.orderamount }} {{ obj.color  }}- {{ obj.date }}</p></li>
+            <li class= "list-group-item">Notes: {{ obj.notes }}</li>
          </ul>
    {% endfor %}
    </div>
