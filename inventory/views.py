@@ -78,7 +78,7 @@ class UpdateInvView(LoginRequiredMixin, UpdateView):
 
 class UpdateAvailInvView(LoginRequiredMixin, UpdateView):
     model = AvailableInventory
-    success_url = 'availinv_list'
+    success_url = 'availinventory'
     template_name = 'availinv_update.html'
     fields = '__all__'
     context_object_name = 'inv'
