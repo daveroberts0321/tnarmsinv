@@ -5,7 +5,7 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import settings
 from inventory.views import (Index, InvListView, StaffIndex, 
-StaffListView, AddInvView, UpdateInvView, OrderListView, AddOrderView, UpdateOrderView,
+StaffListView, AddInvView, UpdateInvView, OrderListView, AddOrderView, UpdateOrderView,AvailInvListView,UpdateAvailInvView,
 OrderListView, AddConsumables,ConsumablesView, UpdateConsumables, OrderDelete, Supplier, SupplierDelete, SupplierListView, AddSupplier, UpdateSupplierView, AdvantageList)
 
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name = 'index'),
     path('inventory', InvListView.as_view(), name = 'inventory'),
+    path('availinventory', AvailInvListView.as_view(), name = 'availinventory'),
     path('staff', StaffIndex.as_view(), name = 'staff'),
     path('staff/list', StaffListView.as_view(), name = 'stafflist'),
     path('staff/orderlist', OrderListView.as_view(), name = 'orderlist'),
@@ -24,6 +25,7 @@ urlpatterns = [
     path('staff/addorder', AddOrderView.as_view(), name = 'addorder'),
     path('staff/addconsumables', AddConsumables.as_view(), name = 'addconsumables'),
     path('staff/invupdate-<int:pk>', UpdateInvView.as_view(), name = 'updateinv'),
+    path('staff/availinvupdate-<int:pk>', UpdateAvailInvView.as_view(), name = 'updateavailinv'),
     path('staff/updatesupplier-<int:pk>', UpdateSupplierView.as_view(), name = 'updatesupplier'),
     path('staff/updateorder-<int:pk>', UpdateOrderView.as_view(), name = 'updateorder'),
     path('staff/updatesupplier-<int:pk>', SupplierDelete.as_view(), name = 'supplierdelete'),

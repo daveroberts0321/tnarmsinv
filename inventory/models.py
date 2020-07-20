@@ -159,3 +159,60 @@ class Supplier(models.Model):
         managed = True
         verbose_name = 'Supplier'
         verbose_name_plural = 'Suppliers'
+
+class AvailableInventory(models.Model):
+    ''' all Available Inventory serialized and nonserialized inventory by color and type'''
+    ar15black = models.CharField(max_length=50, default= "00/00")
+    ar15fde = models.CharField(max_length=50, default= "00/00")
+    ar15od = models.CharField(max_length=50, default= "00/00")
+    ar15rifle = models.CharField(max_length=50, default= "00/00")
+    ar15stealth = models.CharField(max_length=50, default= "00/00")
+    ar15clear = models.CharField(max_length=50, default= "00/00")
+    ar15pink = models.CharField(max_length=50, default= "00/00")
+    blemar15black = models.CharField(max_length=50, default= "00/00")
+    blemar15fde = models.CharField(max_length=50, default= "00/00")
+    blemar15od = models.CharField(max_length=50, default= "00/00")
+    blemar15rifle = models.CharField(max_length=50, default= "00/00")
+    blemar15stealth = models.CharField(max_length=50, default= "00/00")
+    blemar15clear = models.CharField(max_length=50, default= "00/00")
+    blemar15pink = models.CharField(max_length=50, default= "00/00")
+    ar308black = models.CharField(max_length=50, default= "00/00")
+    ar308fde = models.CharField(max_length=50, default= "00/00")
+    ar308od = models.CharField(max_length=50, default= "00/00")
+    ar308rifle = models.CharField(max_length=50, default= "00/00")
+    ar308stealth = models.CharField(max_length=50, default= "00/00")
+    ar308pink = models.CharField(max_length=50, default= "00/00")
+    blemar308black = models.CharField(max_length=50, default= "00/00")
+    blemar308fde = models.CharField(max_length=50, default= "00/00")
+    blemar308od = models.CharField(max_length=50, default= "00/00")
+    blemar308rifle = models.CharField(max_length=50, default= "00/00")
+    blemar308stealth = models.CharField(max_length=50, default= "00/00")
+    blemar308pink = models.CharField(max_length=50, default= "00/00")
+    tac9black = models.CharField(max_length=50, default= "00/00")
+    tac9fde = models.CharField(max_length=50, default= "00/00")
+    tac9od = models.CharField(max_length=50, default= "00/00")
+    tac9rifle = models.CharField(max_length=50, default= "00/00")
+    tac9stealth = models.CharField(max_length=50, default= "00/00")
+    tac9pink = models.CharField(max_length=50, default= "00/00")
+    blemtac9black = models.CharField(max_length=50, default= "00/00")
+    blemtac9fde = models.CharField(max_length=50, default= "00/00")
+    blemtac9od = models.CharField(max_length=50, default= "00/00")
+    blemtac9rifle = models.CharField(max_length=50, default= "00/00")
+    blemtac9stealth = models.CharField(max_length=50, default= "00/00")
+    blemtac9pink = models.CharField(max_length=50, default= "00/00")
+    black80 = models.CharField(max_length=50, default= "00/00")
+    stealth80 = models.CharField(max_length=50, default= "00/00")
+    rifle80 = models.CharField(max_length=50, default= "00/00")
+    blemblack80 = models.CharField(max_length=50, default= "00/00")
+    blemfde80 = models.CharField(max_length=50, default= "00/00")
+    blemstealth80 = models.CharField(max_length=50, default= "00/00")
+    blemrifle80 = models.CharField(max_length=50, default= "00/00")
+    
+    notes = models.TextField()
+
+
+    def get_absolute_url(self):
+        return reverse('inventory-detail', kwargs={'pk': self.pk})      
+
+    def __str__(self):
+        return f'Ar15Blk: {self.ar15black} '

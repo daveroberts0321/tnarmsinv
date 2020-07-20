@@ -7,8 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.utils import timezone
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from . models import Inventory, Orders, Consumables, Supplier
-from . forms import AddInv, AddOrders, AddConsumables, AddSupplier
+from . models import Inventory, Orders, Consumables, Supplier, AvailableInventory
+from . forms import AddInv, AddOrders, AddConsumables, AddSupplier, AddAvailInv
 
 
 # Create your views here.
@@ -76,6 +76,13 @@ class UpdateInvView(LoginRequiredMixin, UpdateView):
     fields = '__all__'
     context_object_name = 'inv'
 
+class UpdateAvailInvView(LoginRequiredMixin, UpdateView):
+    model = AvailableInventory
+    success_url = 'availinv_list'
+    template_name = 'availinv_update.html'
+    fields = '__all__'
+    context_object_name = 'inv'
+
 class UpdateSupplierView(LoginRequiredMixin, UpdateView):
     model = Supplier
     success_url = 'supplierlist'
@@ -101,6 +108,10 @@ class UpdateConsumables(LoginRequiredMixin, UpdateView):
 class InvListView(ListView):
     model = Inventory
     template_name = "inventory_list.html"
+
+class AvailInvListView(ListView):
+    model = AvailableInventory
+    template_name = "availinv_list.html"
 
 
     def get_context_data(self, **kwargs):

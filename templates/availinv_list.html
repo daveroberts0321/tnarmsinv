@@ -1,0 +1,103 @@
+{% extends 'staffbase.html' %}
+{% block bodyblock %}
+<div style="background-color:blue">
+<h1 class = "text-white">Current Available Inventory On-Hand</h1>
+</div>    
+<h5>To use this section please use the format 00/00 when updating the chart. The first number set means that the receiver is processed but not Reamed/Cleaned/or Oiled. The second number set means it is ready to go and placed on the available inventory shelf
+    please update this chart as you finish processing receivers or 80% receivers.
+</h5><br><br>
+{% for inv in object_list %}
+<div class="row">
+    <!--StartSection -->
+    <div class="col-sm-4">
+        <!--inventory --> 
+        <h3>Avail AR15 Style</h3>
+        <ul>
+            <li>Avail Ar15 Black : {{ inv.ar15black}}</li>
+            <li>Avail Ar15 FDE   : {{ inv.ar15fde }}</li>
+            <li>Avail Ar15 Stlh  : {{ inv.ar15stealth}}</li>
+            <li>Avail Ar15 OD : {{ inv.ar15od}}</li>
+            <li>Avail Ar15 Rifle   : {{ inv.ar15rifle }}</li>
+            <li>Avail Ar15 Clear  : {{ inv.ar15clear}}</li>
+            <li>Avail Ar15 Pink  : {{ inv.ar15pink}}</li>
+            <!-- blems -->
+            <li>Avail Blem Ar15 Black : {{ inv.blemar15black}}</li>
+            <li>Avail Blem Ar15 FDE   : {{ inv.blemar15fde }}</li>
+            <li>Avail Blem Ar15 Stlh  : {{ inv.blemar15stealth}}</li>
+            <li>Avail Blem Ar15 OD : {{ inv.blemar15od}}</li>
+            <li>Avail Blem Ar15 Rifle   : {{ inv.blemar15rifle }}</li>
+            <li>Avail Blem Ar15 Clear  : {{ inv.blemar15clear}}</li>
+            <li>Avail Blem Ar15 Pink : {{ inv.blemar15pink}}</li>
+        </ul>
+    </div>
+    <!--End Section -->
+    <div class="col-sm-4">
+        <h3>Avail AR 308 Style</h3>
+        <ul>
+            <li>Avail Ar308 Black : {{ inv.ar308black}}</li>
+            <li>Avail Ar308 FDE   : {{ inv.ar308fde }}</li>
+            <li>Avail Ar308 Stlh  : {{ inv.ar308stealth}}</li>
+            <li>Avail Ar308 OD : {{ inv.ar308od}}</li>
+            <li>Avail Ar308 Rifle   : {{ inv.ar308rifle }}</li>
+            <li>Avail Ar308 Pink  : {{ inv.ar308pink}}</li>
+            <li>Avail Blem Ar308 Black : {{ inv.blemar308black}}</li>
+            <li>Avail Blem Ar308 FDE   : {{ inv.blemar308fde }}</li>
+            <li>Avail Blem Ar308 Stlh  : {{ inv.blemar308stealth}}</li>
+            <li>Avail Blem Ar308 OD : {{ inv.blemar308od}}</li>
+            <li>Avail Blem Ar308 Rifle   : {{ inv.blemar308rifle }}</li>
+            <li>Avail Blem Ar308 Pink  : {{ inv.blemar308pink}}</li>
+        </ul>
+    </div>
+    <!--StartSection -->
+    <div class="col-sm-4">
+        <!--inventory -->
+        <!-- TAC9 -->
+            <h3>Avail TAC-9 Receivers </h3>
+            <li>Avail Tac9 Black : {{ inv.tac9black}}</li>
+            <li>Avail Tac9 FDE   : {{ inv.tac9fde }}</li>
+            <li>Avail Tac9 Stlh  : {{ inv.tac9stealth}}</li>
+            <li>Avail Tac9 OD : {{ inv.tac9od}}</li>
+            <li>Avail Tac9 Rifle   : {{ inv.tac9rifle }}</li>
+            <li>Avail Blem Tac9 Black : {{ inv.blemtac9black}}</li>
+            <li>Avail Blem Tac9 FDE   : {{ inv.blemtac9fde }}</li>
+            <li>Avail Blem Tac9 Stlh  : {{ inv.blemtac9stealth}}</li>
+            <li>Avail Blem Tac9 OD : {{ inv.blemtac9od}}</li>
+            <li>Avail Blem Tac9 Rifle   : {{ inv.blemtac9rifle }}</li>
+            <li>Avail Blem Tac9 Pink  : {{ inv.blemtac9pink}}</li>
+    </div>
+    <!--End Section -->
+    <!--StartSection -->
+    <div class="col-sm-4">
+        <!-- 80's -->
+            <h3>Avail  80% Receivers</h3>
+            <li>Avail 80 Black : {{ inv.black80}}</li>
+            <li>Avail 80 FDE   : {{ inv.fde80 }}</li>
+            <li>Avail 80 Stlh  : {{ inv.stealth80}}</li>
+            <li>Avail 80 Rifle : {{ inv.rifle80}}</li>
+            <li>Avail Blem 80 Black : {{ inv.blemblack80}}</li>
+            <li>Avail Blem 80 FDE   : {{ inv.blemfde80 }}</li>
+            <li>Avail Blem 80 Stlh  : {{ inv.blemstealth80}}</li>
+            <li>Avail Blem 80 Rifle : {{ inv.blemrifle80}}</li>
+
+    </div>
+    <!--End Section -->
+    <!--StartSection -->
+    <div class="col-sm-4">
+        <!--Notes -->
+        {% if inv.inventory %}
+        <h4>Updated by:</h4>
+         <p>{{inv.updatedby}}</p>
+        {% else %}
+        <p> update by : </p>
+        {% endif %}
+        <h4>Notes:</h4>
+        <p>{{ inv.notes }}</p>
+
+        <h4><a href="{% url 'updateavailinv' pk=inv.pk %}">UPDATE</a></h4>
+    </div>
+    <!--End Section -->
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
