@@ -14,7 +14,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name = 'index'),
     path('inventory', InvListView.as_view(), name = 'inventory'),
-    path('availinventory', AvailInvListView.as_view(), name = 'availinventory'),
+    path('staff/availinventory', AvailInvListView.as_view(), name = 'availinventory'),
     path('staff', StaffIndex.as_view(), name = 'staff'),
     path('staff/list', StaffListView.as_view(), name = 'stafflist'),
     path('staff/orderlist', OrderListView.as_view(), name = 'orderlist'),
