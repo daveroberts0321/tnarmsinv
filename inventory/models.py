@@ -204,6 +204,7 @@ class AvailableInventory(models.Model):
     stealth80 = models.CharField(max_length=50, default= "00/00")
     fde80 = models.CharField(max_length=50, default="00/00")
     rifle80 = models.CharField(max_length=50, default= "00/00")
+    jig80 = models.CharField(max_length=50, default="00/00")
     blemblack80 = models.CharField(max_length=50, default= "00/00")
     blemfde80 = models.CharField(max_length=50, default= "00/00")
     blemstealth80 = models.CharField(max_length=50, default= "00/00")
