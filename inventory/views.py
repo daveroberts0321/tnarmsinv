@@ -20,6 +20,10 @@ class Index(TemplateView):
         context['object_list'] = Inventory.objects.all()
         return context
 
+class AverageSales(TemplateView):
+    template_name = 'averagesales.html'
+
+
 class StaffIndex(TemplateView):
     template_name = 'staffindex.html'
 

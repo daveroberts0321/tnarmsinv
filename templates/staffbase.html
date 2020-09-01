@@ -4,6 +4,7 @@
 <html lang="en">
   <head>
     <title>TNA Staff</title>
+    <!--Favicon added but not showing in heroku due to collectstatic issues-->
     <link rel="shortcut icon" type="image" href="{% static 'flavicon.png' %}"/>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,6 +19,7 @@
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'staff' %}">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="{% url 'stafflist' %}">Inventory</a>
+            <a class="nav-item nav-link" href="{% url 'averagesales' %}">AverageSales</a>
             <a class="nav-item nav-link" href="{% url 'ffl:fflindex' %}">FFL Database</a>
             <a class="nav-item nav-link" href="{% url 'orderlist' %}">Purchase Orders</a>
             <a class="nav-item nav-link" href="{% url 'consumableslist' %}">Consumables</a>

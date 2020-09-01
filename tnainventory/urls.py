@@ -5,7 +5,7 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import settings
 from inventory.views import (Index, InvListView, StaffIndex, 
-StaffListView, AddInvView, UpdateInvView, OrderListView, AddOrderView, UpdateOrderView,AvailInvListView,UpdateAvailInvView,
+StaffListView, AddInvView, UpdateInvView, OrderListView, AddOrderView, UpdateOrderView,AvailInvListView,UpdateAvailInvView,AverageSales,
 OrderListView, AddConsumables,ConsumablesView, UpdateConsumables, OrderDelete, Supplier, SupplierDelete, SupplierListView, AddSupplier, UpdateSupplierView, AdvantageList)
 
 
@@ -17,6 +17,7 @@ urlpatterns = [
     path('staff/availinventory', AvailInvListView.as_view(), name = 'availinventory'),
     path('staff', StaffIndex.as_view(), name = 'staff'),
     path('staff/list', StaffListView.as_view(), name = 'stafflist'),
+    path('staff/averagesales', AverageSales.as_view(), name = 'averagesales'),
     path('staff/orderlist', OrderListView.as_view(), name = 'orderlist'),
     path('staff/supplierlist', SupplierListView.as_view(), name = 'supplierlist'),
     path('staff/consumables', ConsumablesView.as_view(), name = 'consumableslist'),
