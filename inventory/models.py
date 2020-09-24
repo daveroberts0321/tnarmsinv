@@ -148,7 +148,15 @@ class Consumables(models.Model):
     jigscrew = models.CharField(default = 0, max_length = 10)
     pistolgripscrew = models.CharField(default = 0, max_length = 10)
     AR15_Buffer_Assembly = models.CharField(default = 0, max_length = 10)
-    AR308_Buffer_Assembly = models.CharField(default = 0, max_length = 10)
+    AR308_Buffer_Assembly = models.CharField(default = 0, max_length = 10, verbose_name="AR308 Rifle Buffer")
+    pb15=models.CharField(default = 0, max_length = 10, verbose_name="AR15 Pistol Buffer")
+    shock15=models.CharField(default = 0, max_length = 10, verbose_name="AR15 Shockwave Pistol Assembly")
+    sb15=models.CharField(default = 0, max_length = 10, verbose_name="AR15 Sb Tactical Assembly")
+    pb9=models.CharField(default = 0, max_length = 10, verbose_name="TAC9 Pistol Buffer")
+    shock9=models.CharField(default = 0, max_length = 10, verbose_name="TAC9 Shockwave Assembly")
+    bubble9=models.CharField(default = 0, max_length = 10, verbose_name="TAC9 Bubble Tube")
+    sb9=models.CharField(default = 0, max_length = 10, verbose_name="TAC9 SB Tactical Assembly")
+    jig308=models.CharField(default = 0, max_length = 10, verbose_name="AR3080 Jig")
     consumablesnotes = models.TextField(blank = True)
     
     

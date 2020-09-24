@@ -7,29 +7,92 @@
 <div class="container-fluid">    
 <ul>
 {% for objects in object_list %}
-   <li><p>- Big Brass: {{ objects.bigbrass }}  </li>
-   <li><p>- Little Brass: {{ objects.littlebrass  }} </p></li>
-   <li><p>- Serial Numbers: {{ objects.serialnum }} </p></li>
-   <li><p>- Tac-9 Arms: {{objects.tac9arm}} </p></li>
-   <li><p>- TAC-9 Buttons: {{ objects.tac9button }} </p></li>
-   <li><p>- Tac 9 Ejectors: {{ objects.tac9ejector  }} </p></li>
-   <li><p>- Ar15 Kit : {{ objects.ar15kit  }} </p></li>
-   <li><p>- Ar308 Kit : {{ objects.AR308kit  }} </p></li>
-   <li><p>- Extended Mag Button : {{ objects.extendedmagrelease  }} </p></li>
-   <li><p>- Tac9 Buffer Assembly : {{ objects.tac9bufferkit }}</p></li>
-   <li><p>- AR15 Buffer Assemblies : {{ objects.AR15_Buffer_Assembly}} </p></li>
-   <li><p>- AR308 Buffer Assemblies : {{ objects.AR308_Buffer_Assembly}} </p></li>
-   <li><p>- Ar308 Kit : {{ objects.AR308kit  }} </p></li>
-   <li><p>- 80 Jigs : {{ objects.jigs  }} </p></li>
-   <li><p>- Drill Bits : {{ objects.drillbits  }} </p></li>
-   <li><p>- Jig Screws : {{ objects.jigscrew  }} </p></li>
-   <li><p>- Pistol Grip Screws : {{ objects.pistolgripscrew  }} </p></li>
-   <p>Notes: {{objects.consumablesnotes}}</p>
-   <p><a href="{% url 'updateconsumables' pk=objects.pk %}">Update</a></p>
 
-{% empty %}
-    <li><h4> No consumables listed </h4>
-{% endfor %}
-</ul>
-</div>
+<div class="row">
+    <!--StartSection -->
+    <div class="col-sm-3">
+        <!--Receivers --> 
+        <h3>Receiver Production </h3>
+        <ul>
+            <li>Big Brass : {{ objects.bigbrass }}</li>
+            <li>Little Brass : {{ objects.littlebrass  }}</li>
+            <li>Serial Number Inserts :{{ objects.serialnum }}</li>
+            <li>Pistol Grip Screws : {{ objects.pistolgripscrew  }}</li>            
+        </ul>
+    </div>
+    <!--End Section-->
+    <!--StartSection -->
+    <div class="col-sm-3">
+        <!--AR15 --> 
+        <h3>AR15 Production </h3>
+        <ul>
+            <li>AR15 Parts Kits : {{ objects.ar15kit}}</li>
+            <li>AR15 Rifle Buffer Assemblies : {{ objects.AR15_Buffer_Assembly}}</li>
+            <li>AR15 Soft Pistol Buffer : {{ objects.pb15 }}</li>
+            <li>AR15 Shockwave Pistol Buffer : {{ objects.shock15  }}</li>
+            <li>AR15 SB Tactical Assembly: {{ objects.sb15 }} </li>            
+        </ul>
+    </div>
+    <!--End Section-->
+    <!--StartSection -->
+    <div class="col-sm-3">
+        <!--AR308 --> 
+        <h3>AR308 Production </h3>
+        <ul>
+            <li>AR308 Parts Kits : {{ objects.AR308kit  }}</li>
+            <li>AR308 Rifle Buffer : {{ objects.AR308_Buffer_Assembly}}</li>
+                      
+        </ul>
+    </div>
+    <!--End Section-->
+    <!--StartSection -->
+    <div class="col-sm-3">
+        <!--TAC9 --> 
+        <h3>TAC9 Production </h3>
+        <ul>
+            <li>TAC9 Arms : {{objects.tac9arm}}</li>
+            <li>TAC9 Buttons : {{ objects.tac9button }}</li>
+            <li>TAC9 Ejectors : {{ objects.tac9ejector  }} </li>
+            <li>TAC9 Rifle Buffer : {{ objects.tac9bufferkit }}</li>
+            <li>TAC9 Soft Pistol Buffer : {{ objects.pb9 }}</li>
+            <li>TAC9 Shockwave Pistol Buffer : {{ objects.shock9  }}</li>
+            <li>TAC9 SB Tactical Assembly: {{ objects.sb9 }} </li>   
+                      
+        </ul>
+    </div>
+    <!--End Section-->
+     <!--StartSection -->
+     <div class="col-sm-3">
+        <!--80% --> 
+        <h3>80% Production </h3>
+        <ul>
+            <li>AR15 Jigs : {{ objects.jigs  }}</li>
+            <li>Jig Screws : {{ objects.jigscrew  }}</li>
+            <li>Drill Bits : {{ objects.drillbits  }} </li>
+            <li>3080 Jig  : {{ objects.jig308 }}</li>                      
+        </ul>
+    </div>
+    <!--End Section-->
+    <!--StartSection -->
+    <div class="col-sm-3">
+        <!--Accessories --> 
+        <h3>Accessories </h3>
+        <ul>
+            <li>Extended Magazine Button : {{ objects.extendedmagrelease}}</li>
+                           
+        </ul>
+    </div>
+    <!--End Section-->
+    <!--StartSection -->
+    <div class="col-sm-3">
+        <!--Accessories --> 
+        <h3>Notes </h3>
+        <p>Notes: {{objects.consumablesnotes}}</p>
+        <p><a href="{% url 'updateconsumables' pk=objects.pk %}">Update</a></p>-->
+    </div>
+    <!--End Section-->
+  </div>
+ 
+  {% endfor %}
+
 {% endblock %}
