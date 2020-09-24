@@ -6,7 +6,7 @@
 {% for inv in object_list %}
 <div class="row">
     <!--StartSection -->
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <!--inventory --> 
         <h3>AR15 Style</h3>
         <ul>
@@ -28,7 +28,7 @@
         </ul>
     </div>
     <!--End Section -->
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <h3>AR 308 Style</h3>
         <ul>
             <li>Ar308 Black : {{ inv.ar308black}}</li>
@@ -46,7 +46,7 @@
         </ul>
     </div>
     <!--StartSection -->
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <!--inventory -->
         <!-- TAC9 -->
             <h3>TAC-9 Receivers </h3>
@@ -64,7 +64,7 @@
     </div>
     <!--End Section -->
     <!--StartSection -->
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <!-- 80's -->
             <h3> 80% Receivers</h3>
             <li>80 Black : {{ inv.black80}}</li>
@@ -78,15 +78,41 @@
 
     </div>
     <!--End Section -->
+    <!--Start Section-->
+    <div class="col-sm-2">
+        <!-- TAC980's -->
+            <h3> TAC-980% Receivers</h3>
+            <li>TAC980 Black : {{ inv.blk980}}</li>
+            <li>TAC980 FDE   : {{ inv.fde980 }}</li>
+            <li>TAC980 Stlh  : {{ inv.stl980}}</li>
+            <li>TAC980 Rifle : {{ inv.rif980}}</li>
+            <li>TAC980 OD : {{ inv.od980}}</li>
+            <li>BlemTAC980 Black : {{ inv.blemblk980}}</li>
+            <li>BlemTAC980 FDE   : {{ inv.blemfde980 }}</li>
+            <li>BlemTAC980 Stlh  : {{ inv.blemstl980}}</li>
+            <li>BlemTAC980 Rifle : {{ inv.blemrif980}}</li>
+    </div>
+    <!-- End Section-->
+    <!--Start Section-->
+    <div class="col-sm-2">
+        <!-- TAC980's -->
+            <h3> AR-3080% Receivers</h3>
+            <li>AR3080 Black : {{ inv.blk980}}</li>
+            <li>AR3080 FDE   : {{ inv.fde980 }}</li>
+            <li>AR3080 Stlh  : {{ inv.stl980}}</li>
+            <li>AR3080 Rifle : {{ inv.rif980}}</li>
+            <li>AR3080 OD : {{ inv.od980}}</li>
+            <li>Blem AR3080 Black : {{ inv.blemblk3080}}</li>
+            <li>Blem AR3080 FDE   : {{ inv.blemfde3080 }}</li>
+            <li>Blem AR3080 Stlh  : {{ inv.blemstl3080}}</li>
+            <li>Blem AR3080 Rifle : {{ inv.blemrif3080}}</li>
+            <li>Blem AR3080 OD : {{ inv.od980}}</li>
+    </div>
+    <!-- End Section-->
     <!--StartSection -->
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <!--Notes -->
-        {% if inv.inventory %}
-        <h4>Updated by:</h4>
-         <p>{{inv.updatedby}}</p>
-        {% else %}
-        <p> update by : </p>
-        {% endif %}
+        
         <h4>Notes:</h4>
         <p>{{ inv.notes }}</p>
 
