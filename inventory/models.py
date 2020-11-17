@@ -96,6 +96,7 @@ class Inventory(models.Model):
     od3080=models.CharField(max_length=50,default=0, verbose_name="OD Ar3080")
     rif3080=models.CharField(max_length=50,default=0, verbose_name="Rifle AR3080")
     stl3080=models.CharField(max_length=50,default=0, verbose_name="Stealth AR3080")
+    jig3080=models.CharField(max_length=50,default=0, verbose_name="Jig AR3080")
     blemblk3080=models.CharField(max_length=50,default=0, verbose_name="Blem Black AR3080")
     blemfde3080=models.CharField(max_length=50,default=0, verbose_name="Blem FDE AR3080")
     blemod3080=models.CharField(max_length=50,default=0, verbose_name="Blem OD AR3080")
