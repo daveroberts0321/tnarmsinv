@@ -17,6 +17,7 @@ class FFL(models.Model):
     ffldontship = models.BooleanField(default = False, verbose_name='FFL doesnt accept shipments')
     fflshiptomail = models.BooleanField(default = False, verbose_name='FFL request we use mailing address')
     notes = models.TextField(blank = True)
+    #fflimage= models.ImageField(blank=True, verbose_name= 'FFL Image')
 
 
     def __str__(self):
